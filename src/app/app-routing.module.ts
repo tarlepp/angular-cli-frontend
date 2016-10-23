@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AboutRoutes } from './about/';
+import { AuthRoutes } from './auth/';
 import { LayoutRoutes } from './layout/';
 
 const appRoutes = [
@@ -11,17 +12,18 @@ const appRoutes = [
     redirectTo: 'about',
   },
   ...AboutRoutes,
+  ...AuthRoutes,
   ...LayoutRoutes,
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ],
-  providers: []
+  providers: [],
 })
 
 export class AppRoutingModule { }

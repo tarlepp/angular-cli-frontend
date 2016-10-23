@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.login {
+  width: 250px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0, 0, 0, 0.14902) 0 1px 1px 0, rgba(0, 0, 0, 0.09804) 0 1px 2px 0;
+  text-align: center;
+
+  .text {
+    margin-bottom: 16px;
+  }
+
+  button {
+    margin: 0 4px;
+  }
+
+  md-toolbar {
+    min-height: 48px;
+
+    md-toolbar-row {
+      height: 48px;
+    }
+  }
+
+  md-card-content {
+    padding: 8px 16px;
+  }
+
+  md-icon {
+    margin-right: 8px;
+  }
+}

@@ -46,4 +46,7 @@ app-root {
   padding: 0 16px;
 }
 
-md-sidenav-layout > md-content { display: flex !important; flex-direction: column !important; }
+.fill {
+  display: flex;
+  flex: 1 1 auto;
+}

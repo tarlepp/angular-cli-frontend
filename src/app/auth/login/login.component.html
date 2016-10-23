@@ -1,0 +1,31 @@
+<div class="container">
+  <md-card class="login">
+    <md-toolbar color="primary">Login</md-toolbar>
+
+    <md-card-content appFlex>
+      <form #loginForm="ngForm" (submit)="doLogin($event)" novalidate autocomplete="off">
+        <div appLayout="row" appLayoutAlign="center">
+          <md-icon>person</md-icon>
+          <md-input name="username" placeholder="Username or email" type="text" required appFlex
+            [(ngModel)]="username"
+            #usernameControl="ngModel"
+          ></md-input>
+        </div>
+
+        <div appLayout="row" appLayoutAlign="center">
+          <md-icon>security</md-icon>
+          <md-input name="password" placeholder="Password" type="password" required appFlex
+            [(ngModel)]="password"
+            #passwordControl="ngModel"
+          ></md-input>
+        </div>
+
+        <div appLayout="row" appLayoutJustify="center">
+          <button type="submit" md-raised-button color="primary"
+            [disabled]="loginForm.invalid"
+          >Login</button>
+        </div>
+      </form>
+    </md-card-content>
+  </md-card>
+</div>
