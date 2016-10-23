@@ -1,0 +1,14 @@
+<md-toolbar color="primary">
+  <button md-icon-button [md-menu-trigger-for]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+  <md-menu #menu="mdMenu">
+    <button md-menu-item [routerLink]="['/about']">About</button>
+  </md-menu>
+
+  <span>angular2-frontend</span>
+
+  <div class="fill"></div>
+
+</md-toolbar>

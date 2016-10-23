@@ -1,0 +1,8 @@
+export const API = {
+  "API_URL": "localhost",
+  "WHITELIST_DOMAINS": ['localhost']
+};
+
+export class Config {
+  public static API = API;
+}

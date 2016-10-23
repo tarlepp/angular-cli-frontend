@@ -1,0 +1,15 @@
+<div class="footer">
+  <md-toolbar color="primary">
+    <div appFlex></div>
+
+    <span *ngFor="let link of links">
+      <a href="{{link.url}}">
+        <md-icon>{{link.icon}}</md-icon>
+
+        <span>{{link.name}}</span>
+      </a>
+    </span>
+
+    <div appFlex></div>
+  </md-toolbar>
+</div>
