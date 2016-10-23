@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '@angular/material';
 
 import { LoginComponent } from './login.component';
 
@@ -12,6 +12,10 @@ describe('Component: /auth/login/login.component.ts', () => {
     TestBed.configureTestingModule({
       declarations: [
         LoginComponent,
+      ],
+      imports: [
+        FormsModule,
+        MaterialModule.forRoot(),
       ],
     })
     .compileComponents();
@@ -25,8 +29,6 @@ describe('Component: /auth/login/login.component.ts', () => {
   });
 
   it('should create the component', () => {
-    let component = fixture.debugElement.componentInstance;
-
     expect(component).toBeTruthy();
   });
 });
