@@ -27,6 +27,7 @@ import { Config } from './../config/config';
   ],
   providers: [
     MdIconRegistry,
+    Config,
   ],
   exports: [
     CommonModule,
