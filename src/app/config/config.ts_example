@@ -1,6 +1,9 @@
 export const API = {
-  "API_URL": "localhost",
-  "WHITELIST_DOMAINS": ['localhost']
+  URL: 'your_api_url',
+  WHITELIST_DOMAINS: [
+    'localhost',
+    'your_api_domain',
+  ],
 };
 
 export class Config {
