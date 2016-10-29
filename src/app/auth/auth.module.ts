@@ -1,16 +1,34 @@
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core/src/metadata/ng_module';
+import { provideAuth, JwtHelper } from 'angular2-jwt';
+import { LocalStorageService } from 'ng2-webstorage';
 
 import { LoginModule } from './login/login.module';
+import { ProfileModule } from './profile/profile.module';
+import { AuthService, UserService } from './services/';
 
 @NgModule({
   imports: [
     CommonModule,
     LoginModule,
+    ProfileModule,
+  ],
+  providers: [
+    provideAuth({
+      tokenGetter: (() => {
+        let storage = new LocalStorageService();
+
+        return storage.retrieve('token');
+      }),
+    }),
+    JwtHelper,
+    AuthService,
+    UserService,
   ],
   exports: [
     LoginModule,
   ],
+  declarations: [],
 })
 
 export class AuthModule { }

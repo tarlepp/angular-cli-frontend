@@ -1,2 +1,4 @@
-export * from './login/'
-export * from './auth.routing'
+export * from './login/';
+export * from './profile/';
+export * from './services/';
+export * from './auth.routing';
