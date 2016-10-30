@@ -3,6 +3,21 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ProfileComponent } from './profile.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../../shared/shared.module';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
+import { JwtHelper, provideAuth } from 'angular2-jwt';
+import { LocalStorageService } from 'ng2-webstorage';
+import { Observable } from 'rxjs';
+
+class StubAuthService {
+  // TODO, this is not the way this base test should be handled...
+  profile() {
+    return Observable.of([]);
+  }
+}
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -10,7 +25,32 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
+      declarations: [
+        ProfileComponent,
+      ],
+      imports: [
+        SharedModule,
+        RouterModule.forRoot([]),
+      ],
+      providers: [
+        {
+          provide: AuthService,
+          useClass: StubAuthService,
+        },
+        UserService,
+        JwtHelper,
+        provideAuth({
+          tokenGetter: (() => {
+            let storage = new LocalStorageService();
+
+            return storage.retrieve('token');
+          }),
+        }),
+        {
+          provide: APP_BASE_HREF,
+          useValue : '/',
+        },
+      ],
     })
     .compileComponents();
   }));
@@ -22,7 +62,7 @@ describe('ProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should throw error without valid credentials', () => {
     expect(component).toBeTruthy();
   });
 });
