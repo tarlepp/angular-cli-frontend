@@ -7,6 +7,7 @@ import 'rxjs';
 
 import { Config } from '../../config/config';
 import { UserService } from './user.service';
+import { ProfileDataBackendInterface, TokenDataInterface } from './interfaces/';
 
 @Injectable()
 export class AuthService {
@@ -29,9 +30,9 @@ export class AuthService {
    * Method to make login request to backend with given credentials.
    *
    * @param credentials
-   * @returns {Observable<any>}
+   * @returns {Observable<TokenDataInterface>}
    */
-  public login(credentials) {
+  public login(credentials): Observable<TokenDataInterface> {
     return this.http
       .post(`${Config.API.URL}auth/getToken`, credentials)
       .map((res: Response) => res.json())
@@ -55,16 +56,17 @@ export class AuthService {
   /**
    * Method to fetch user profile data from backend.
    *
-   * @returns {Observable<any>}
+   * @returns {Observable<ProfileDataBackendInterface>}
    */
-  public profile() {
+  public profile(): Observable<ProfileDataBackendInterface> {
     return this.authHttp
       .get(`${Config.API.URL}auth/profile`)
       .map((response: Response) => response.json())
       .catch((error: any) => {
-        console.log('Cannot get user profile', error);
+        this.logout();
 
-        return this.logout();
-      });
+        return Observable.throw(error.json().message || 'Invalid credentials');
+      })
+    ;
   }
 }

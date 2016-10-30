@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { AuthService, UserService } from '../services/';
+import { ProfileDataBackendInterface, ProfileDataJwtInterface } from '../services/interfaces/';
 
 @Component({
   selector: 'app-profile',
@@ -8,8 +11,8 @@ import { AuthService, UserService } from '../services/';
 })
 
 export class ProfileComponent implements OnInit {
-  private profileLocal: any;
-  private profileRemote$: any;
+  private profileLocal: ProfileDataJwtInterface;
+  private profileRemote$: Observable<ProfileDataBackendInterface>;
 
   /**
    * Constructor of the class.

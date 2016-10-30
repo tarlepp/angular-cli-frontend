@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from 'ng2-webstorage';
 import { JwtHelper, tokenNotExpired } from 'angular2-jwt';
 
-interface tokenData {
-  token: string,
-  refresh_token: string
-}
+import { ProfileDataJwtInterface, TokenDataInterface } from './interfaces/';
 
 @Injectable()
 export class UserService {
@@ -23,9 +20,9 @@ export class UserService {
   /**
    * Method to store JWT token data to local storage.
    *
-   * @param {tokenData} data
+   * @param {TokenDataInterface} data
    */
-  public storeTokens(data: tokenData): void {
+  public storeTokens(data: TokenDataInterface): void {
     this.localStorage.store('token', data.token);
     this.localStorage.store('refreshToken', data.refresh_token);
   }
@@ -33,9 +30,9 @@ export class UserService {
   /**
    * Method to get current user profile data from JWT data.
    *
-   * @returns {Object|boolean}
+   * @returns {ProfileDataJwtInterface|boolean}
    */
-  public profile(): Object {
+  public profile(): ProfileDataJwtInterface {
     return (this.loggedIn()) ? this.jwtHelper.decodeToken(this.localStorage.retrieve('token')) : false;
   }
 
