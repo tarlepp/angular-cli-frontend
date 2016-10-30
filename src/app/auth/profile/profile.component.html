@@ -1,7 +1,18 @@
-<p>
-  profile works!
-</p>
+<div class="normal-content">
 
-<pre>{{ profileLocal | json }}</pre>
+  <div appLayout="row" appFlex>
+    <div appFlex="47.5%">
+      <h2 class="md-subhead">Profile data from JWT</h2>
 
-<pre>{{ profileRemote$ | async | json }}</pre>
+      <pre>{{ profileLocal | json }}</pre>
+    </div>
+
+    <div appFlex="5%"></div>
+
+    <div appFlex="47.5%">
+      <h2 class="md-subhead">Profile data from Backend</h2>
+
+      <pre>{{ profileRemote$ | async | json }}</pre>
+    </div>
+  </div>
+</div>
