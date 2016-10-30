@@ -7,7 +7,7 @@ import { LocalStorageService } from 'ng2-webstorage';
 
 import { AuthService, UserService } from './';
 
-describe('Service: /src/app/auth/services/auth.service.ts', () => {
+describe('Service: /auth/services/auth.service.ts', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -37,7 +37,7 @@ describe('Service: /src/app/auth/services/auth.service.ts', () => {
     });
   });
 
-  it('should create service', inject([AuthService], (service: AuthService) => {
+  it('should create the service', inject([AuthService], (service: AuthService) => {
     expect(service).toBeTruthy();
   }));
 });

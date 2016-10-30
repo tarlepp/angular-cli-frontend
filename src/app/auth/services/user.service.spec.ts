@@ -4,7 +4,7 @@ import { JwtHelper } from 'angular2-jwt';
 
 import { UserService } from './user.service';
 
-describe('Service: /auth/services/user.service.spec.ts', () => {
+describe('Service: /auth/services/user.service.ts', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
@@ -15,7 +15,7 @@ describe('Service: /auth/services/user.service.spec.ts', () => {
     });
   });
 
-  it('should create service', inject([UserService], (service: UserService) => {
+  it('should create the service', inject([UserService], (service: UserService) => {
     expect(service).toBeTruthy();
   }));
 });

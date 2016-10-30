@@ -19,7 +19,7 @@ class StubAuthService {
   }
 }
 
-describe('ProfileComponent', () => {
+describe('Component: /auth/profile/profile.component.ts', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
 
@@ -62,7 +62,7 @@ describe('ProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should throw error without valid credentials', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 });
