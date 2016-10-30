@@ -1,16 +1,21 @@
-/* tslint:disable:no-unused-variable */
+import { TestBed,  inject } from '@angular/core/testing';
+import { LocalStorageService } from 'ng2-webstorage';
+import { JwtHelper } from 'angular2-jwt';
 
-import { TestBed, async, inject } from '@angular/core/testing';
 import { UserService } from './user.service';
 
-describe('Service: User', () => {
+describe('Service: /auth/services/user.service.spec.ts', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UserService]
+      providers: [
+        UserService,
+        LocalStorageService,
+        JwtHelper,
+      ],
     });
   });
 
-  it('should ...', inject([UserService], (service: UserService) => {
+  it('should create service', inject([UserService], (service: UserService) => {
     expect(service).toBeTruthy();
   }));
 });
