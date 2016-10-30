@@ -5,7 +5,7 @@ import { LocalStorageService } from 'ng2-webstorage';
 
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
-import { AuthenticationGuard } from './guards/';
+import { AnonymousGuard, AuthenticationGuard } from './guards/';
 import { AuthService, UserService } from './services/';
 
 @NgModule({
@@ -25,6 +25,7 @@ import { AuthService, UserService } from './services/';
     JwtHelper,
     AuthService,
     UserService,
+    AnonymousGuard,
     AuthenticationGuard,
   ],
   exports: [
