@@ -33,10 +33,10 @@ export class UserService {
   /**
    * Method to get current user profile data from JWT data.
    *
-   * @returns {{}}
+   * @returns {Object|boolean}
    */
   public profile(): Object {
-    return (this.loggedIn()) ? this.jwtHelper.decodeToken(this.localStorage.retrieve('token')) : {};
+    return (this.loggedIn()) ? this.jwtHelper.decodeToken(this.localStorage.retrieve('token')) : false;
   }
 
   /**
@@ -49,7 +49,7 @@ export class UserService {
   }
 
   /**
-   * Method to erase all local storage data related to user.
+   * Method to erase data from local storage.
    */
   public erase(): void {
     this.localStorage.clear();

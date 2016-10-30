@@ -29,7 +29,7 @@ export class AuthService {
    * Method to make login request to backend with given credentials.
    *
    * @param credentials
-   * @returns {Observable<R>}
+   * @returns {Observable<any>}
    */
   public login(credentials) {
     return this.http
@@ -42,9 +42,20 @@ export class AuthService {
   }
 
   /**
+   * Method to logout current user
+   *
+   * @returns {Promise<boolean>}
+   */
+  public logout() {
+    this.userService.erase();
+
+    return this.router.navigate(['auth/login']);
+  }
+
+  /**
    * Method to fetch user profile data from backend.
    *
-   * @returns {Observable<R>}
+   * @returns {Observable<any>}
    */
   public profile() {
     return this.authHttp
@@ -53,10 +64,7 @@ export class AuthService {
       .catch((error: any) => {
         console.log('Cannot get user profile', error);
 
-        this.userService.erase();
-
-        return this.router.navigate(['auth/login']);
-      })
-    ;
+        return this.logout();
+      });
   }
 }
