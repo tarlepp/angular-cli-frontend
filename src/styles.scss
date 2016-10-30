@@ -33,7 +33,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
 app-root {
@@ -46,7 +46,19 @@ app-root {
   padding: 0 16px;
 }
 
-.fill {
-  display: flex;
-  flex: 1 1 auto;
+.md-headline {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.md-title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: .005em;
+}
+
+.md-subhead {
+  font-size: 16px;
+  line-height: 24px;
 }
