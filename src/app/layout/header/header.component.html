@@ -9,6 +9,26 @@
 
   <span>angular2-frontend</span>
 
-  <div class="fill"></div>
+  <span appFlex></span>
+
+  <span>
+    <button *ngIf="user"
+      md-mini-fab
+      md-tooltip="Logout"
+      tooltip-position="below"
+      (click)="authService.logout()"
+    >
+      <md-icon>power_settings_new</md-icon>
+    </button>
+
+    <button *ngIf="!user"
+      md-mini-fab
+      md-tooltip="Login"
+      tooltip-position="below"
+      [routerLink]="['/auth/login']"
+    >
+      <md-icon>person</md-icon>
+    </button>
+  </span>
 
 </md-toolbar>
