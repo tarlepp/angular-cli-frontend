@@ -20,8 +20,8 @@ export class AuthenticationGuard implements CanActivate {
   ) { }
 
   /**
-   * Purpose of this guard is check if current user has not given nick for chat. If nick is found from local storage
-   * user will be allowed to enter chat. If nick isn't found from local storage user is redirected nick entry route.
+   * Purpose of this guard is check that current user has been authenticated to application. If user is not
+   * authenticated he/she is redirected to login page.
    *
    * @param {ActivatedRouteSnapshot}  route
    * @param {RouterStateSnapshot}     state
