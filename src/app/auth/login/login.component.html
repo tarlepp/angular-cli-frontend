@@ -3,7 +3,7 @@
     <md-toolbar color="primary">Login</md-toolbar>
 
     <md-card-content appFlex>
-      <md-spinner *ngIf="loading"></md-spinner>
+      <md-spinner *ngIf="loading" color="accent"></md-spinner>
 
       <form #loginForm="ngForm" (submit)="login($event)" novalidate autocomplete="off"
         [class.opacity-50]="loading"
