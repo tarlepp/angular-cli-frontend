@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   @Input()
   password: string;
 
+  public loading: boolean = false;
+
   /**
    * Constructor of the class.
    *
@@ -41,6 +43,14 @@ export class LoginComponent implements OnInit {
    * On component init we want to set focus to username / email input.
    */
   ngOnInit(): void {
+    // Reset form data
+    this.username = '';
+    this.password = '';
+
+    // Remove loading
+    this.loading = false;
+
+    // Focus to username input
     this.usernameControl.focus();
   }
 
@@ -53,6 +63,8 @@ export class LoginComponent implements OnInit {
     event.stopPropagation();
     event.preventDefault();
 
+    this.loading = true;
+
     this.authService
       .login({username: this.username, password: this.password})
       .subscribe(
@@ -62,6 +74,8 @@ export class LoginComponent implements OnInit {
 
           // And redirect user to profile page
           this.router.navigate(['auth/profile']);
+
+          this.loading = false;
         },
         (error) => {
           console.log('Login error',  error);
@@ -69,9 +83,7 @@ export class LoginComponent implements OnInit {
           // Clear local storage data
           this.userService.erase();
 
-          // Reset form data
-          this.username = '';
-          this.password = '';
+          this.ngOnInit();
         }
       )
     ;
