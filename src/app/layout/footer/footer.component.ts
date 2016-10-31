@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,16 +7,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   public links: any[] = [
     {
       name: 'GitHub',
-      url: 'https://github.com/tarlepp/angular2-firebase-material-demo',
+      url: 'https://github.com/tarlepp/angular2-frontend',
       icon: 'web',
     },
     {
       name: 'Issues',
-      url: 'https://github.com/tarlepp/angular2-firebase-material-demo/issues',
+      url: 'https://github.com/tarlepp/angular2-frontend/issues',
       icon: 'bug_report',
     },
     {
@@ -27,6 +27,4 @@ export class FooterComponent implements OnInit {
   ];
 
   constructor() { }
-
-  ngOnInit() { }
 }
