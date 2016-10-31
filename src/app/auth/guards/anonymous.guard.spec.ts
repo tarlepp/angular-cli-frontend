@@ -45,6 +45,10 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
     });
   });
 
+  it('should create the guard', inject([AnonymousGuard], (guard: AnonymousGuard) => {
+    expect(guard).toBeTruthy();
+  }));
+
   describe('When user is not logged in', () => {
     it('should return true', inject([AnonymousGuard], (guard: AnonymousGuard) => {
       expect(guard.canActivate(route, state)).toBeTruthy();

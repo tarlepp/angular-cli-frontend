@@ -45,6 +45,10 @@ describe('Guard: /auth/guards/authentication.guard.ts', () => {
     });
   });
 
+  it('should create the guard', inject([AuthenticationGuard], (guard: AuthenticationGuard) => {
+    expect(guard).toBeTruthy();
+  }));
+
   describe('When user is not logged in', () => {
     it('should return false', inject([AuthenticationGuard], (guard: AuthenticationGuard) => {
       expect(guard.canActivate(route, state)).not.toBeTruthy();
