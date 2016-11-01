@@ -95,7 +95,6 @@ ng serve
 Then head to `http://localhost:4200` in your browser.
 
 ## Tests
-
 ### Unit tests
 To run tests run:
 ```bash
