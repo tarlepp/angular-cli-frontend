@@ -5,6 +5,29 @@
 [![Dependency Status](https://david-dm.org/tarlepp/angular2-frontend.svg)](https://david-dm.org/tarlepp/angular2-frontend)
 [![devDependency Status](https://david-dm.org/tarlepp/angular2-frontend/dev-status.svg)](https://david-dm.org/tarlepp/angular2-frontend#info=devDependencies)
 
+## Table of Contents
+ * [What is this?](#what-is-this)
+ * [Used libraries, guides, etc.](#used-libraries-guides-etc)
+   * [Libraries](#libraries)
+   * [Guides](#guides)
+   * [Other resources](#other-resources)
+ * [Installation, configure and usage](#installation-configure-and-usage)
+   * [Preconditions](#preconditions)
+   * [Installation](#installation)
+   * [Configuration](#configuration)
+ * [Backend for this application](#backend-for-this-application)
+   * [Endpoints / actions:](#endpoints--actions)
+   * [JWT handling](#jwt-handling)
+   * [CORS support](#cors-support)
+   * [Example backend](#example-backend)
+ * [Development](#development)
+ * [Tests](#tests)
+   * [Unit tests](#unit-tests)
+   * [e2e tests](#e2e-tests)
+ * [Build](#build)
+ * [Author](#author)
+ * [License](#license)
+
 ## What is this?
 
 "Simple" frontend application for "generic" REST backend which uses JWT to authenticate users.
@@ -31,9 +54,20 @@ First of all you have to install `npm` and `node.js` to your box - note that `No
 * [Node Version Manager](https://github.com/creationix/nvm#installation)
 
 ### Installation
-Open your shell/terminal and navigate to root of application folder and run following command:
+First of all you have to install ```npm``` and ```node.js``` to your box. Installation instructions can
+be found [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager). 
+
+Note that ```node.js 6.x``` is required.
+
 ```bash
-npm install
+$ git clone https://github.com/tarlepp/angular2-frontend.git
+$ cd angular2-frontend
+
+# install the project's dependencies
+$ npm install
+
+# fast install (via Yarn, https://yarnpkg.com)
+$ yarn install  # or yarn
 ```
 
 ### Configuration
@@ -85,11 +119,9 @@ You can find simple backend solution [here](https://github.com/tarlepp/symfony-b
 To start developing in the project run:
 
 ```bash
-npm start
-``` 
-OR
-```bash
-ng serve
+$ npm start
+# OR
+$ ng serve
 ```
 
 Then head to `http://localhost:4200` in your browser.
@@ -99,13 +131,17 @@ Then head to `http://localhost:4200` in your browser.
 ### Unit tests
 To run tests run:
 ```bash
-ng test
+$ npm test
+# OR
+$ ng test
 ```
 
 ### e2e tests
 To run tests run:
 ```bash
-ng e2e
+$ npm run e2e
+# OR
+$ ng e2e
 ```
 
 ## Build
