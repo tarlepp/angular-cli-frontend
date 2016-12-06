@@ -17,19 +17,27 @@
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.2.4.tgz#0e798cce826ba304d3b29556527a1a531f407159"
 
-"@angular/compiler-cli@^2.1.0":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.2.4.tgz#3828a9b4b47f6f1d21aa1c80a5a63ec9a6fc7740"
+"@angular/compiler-cli@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.2.1.tgz#166469b881d63946cc3e45c47a87d2b6cd902386"
   dependencies:
     "@angular/tsc-wrapped" "^0.3.0"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@^2.1.0", "@angular/compiler@2.2.4":
+"@angular/compiler@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.2.1.tgz#16e7faf588cf9121a0f6c16d0bae2830f4cafdc1"
+
+"@angular/compiler@2.2.4":
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.2.4.tgz#40e8db5f801939ddc1a163079dc71b3be81a06ae"
 
-"@angular/core@^2.1.0", "@angular/core@2.2.4":
+"@angular/core@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.2.1.tgz#86fdc34a370a4fcfe84ed9de4b3c43548612919c"
+
+"@angular/core@2.2.4":
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.2.4.tgz#d00d5cfc734fd610cbafc14eb0749c957f004aa9"
 
@@ -65,9 +73,9 @@
   dependencies:
     tsickle "^0.1.7"
 
-"@ngtools/webpack@^1.1.0":
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.1.8.tgz#552f5ebce6cc40a03160f0cb6e9d820f9451622d"
+"@ngtools/webpack@^1.0.0":
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.1.9.tgz#ec40fb5e0082d517ae332b76de3fb46341fb8c7f"
   dependencies:
     "@angular-cli/ast-tools" "^1.0.0"
     magic-string "^0.16.0"
@@ -161,16 +169,16 @@ amdefine@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.0.tgz#fd17474700cb5cc9c2b709f0be9d23ce3c198c33"
 
-angular-cli@1.0.0-beta.20-4:
-  version "1.0.0-beta.20-4"
-  resolved "https://registry.yarnpkg.com/angular-cli/-/angular-cli-1.0.0-beta.20-4.tgz#16f5a0aba5a348e158adf35c2430bd36a1507243"
+angular-cli@1.0.0-beta.21:
+  version "1.0.0-beta.21"
+  resolved "https://registry.yarnpkg.com/angular-cli/-/angular-cli-1.0.0-beta.21.tgz#fc8afb32baea1d2cfee482b71f1ecf91de4e16d7"
   dependencies:
     "@angular-cli/ast-tools" "^1.0.1"
     "@angular-cli/base-href-webpack" "^1.0.0"
-    "@angular/compiler" "^2.1.0"
-    "@angular/compiler-cli" "^2.1.0"
-    "@angular/core" "^2.1.0"
-    "@ngtools/webpack" "^1.1.0"
+    "@angular/compiler" "2.2.1"
+    "@angular/compiler-cli" "2.2.1"
+    "@angular/core" "2.2.1"
+    "@ngtools/webpack" "^1.0.0"
     angular2-template-loader "^0.5.0"
     awesome-typescript-loader "^2.2.3"
     chalk "^1.1.3"
