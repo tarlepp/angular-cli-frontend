@@ -1,9 +1,9 @@
-# Angular2 Frontend
+# Angular CLI Frontend
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Build Status](https://travis-ci.org/tarlepp/angular2-frontend.png?branch=master)](https://travis-ci.org/tarlepp/angular2-frontend)
-[![codecov](https://codecov.io/gh/tarlepp/angular2-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/tarlepp/angular2-frontend)
-[![Dependency Status](https://david-dm.org/tarlepp/angular2-frontend.svg)](https://david-dm.org/tarlepp/angular2-frontend)
-[![devDependency Status](https://david-dm.org/tarlepp/angular2-frontend/dev-status.svg)](https://david-dm.org/tarlepp/angular2-frontend#info=devDependencies)
+[![Build Status](https://travis-ci.org/tarlepp/angular-cli-frontend.png?branch=master)](https://travis-ci.org/tarlepp/angular-cli-frontend)
+[![codecov](https://codecov.io/gh/tarlepp/angular-cli-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/tarlepp/angular-cli-frontend)
+[![Dependency Status](https://david-dm.org/tarlepp/angular-cli-frontend.svg)](https://david-dm.org/tarlepp/angular-cli-frontend)
+[![devDependency Status](https://david-dm.org/tarlepp/angular-cli-frontend/dev-status.svg)](https://david-dm.org/tarlepp/angular-cli-frontend#info=devDependencies)
 
 ## Table of Contents
  * [What is this?](#what-is-this)
@@ -29,8 +29,9 @@
  * [License](#license)
 
 ## What is this?
-
 "Simple" frontend application for "generic" REST backend which uses JWT to authenticate users.
+ 
+This is built with Angular-CLI tool.
 
 ## Used libraries, guides, etc.
 
@@ -60,8 +61,8 @@ be found [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-packa
 Note that ```node.js 6.x``` is required.
 
 ```bash
-$ git clone https://github.com/tarlepp/angular2-frontend.git
-$ cd angular2-frontend
+$ git clone https://github.com/tarlepp/angular-cli-frontend.git
+$ cd angular-cli-frontend
 
 # install the project's dependencies
 $ npm install
