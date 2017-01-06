@@ -50,8 +50,8 @@ export class LoginComponent implements OnInit {
     // Remove loading
     this.loading = false;
 
-    // Focus to username input
-    this.usernameControl.focus();
+    // Focus to username input - TODO fix this
+    //this.usernameControl.focus();
   }
 
   /**
