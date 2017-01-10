@@ -1,12 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { provideAuth, JwtHelper } from 'angular2-jwt';
+import { JwtHelper, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
 import { AnonymousGuard, AuthenticationGuard } from './guards/';
 import { AuthService, UserService } from './services/';
+import { Http, RequestOptions } from '@angular/http';
+
+/**
+ * AuthHttp service factory to override some config values.
+ *
+ * @param {Http}            http
+ * @param {RequestOptions}  options
+ *
+ * @returns {AuthHttp}
+ */
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(
+    new AuthConfig({
+      tokenName: 'token',
+      tokenGetter: (() => {
+        let storage = new LocalStorageService();
+
+        return storage.retrieve('token');
+      }),
+      globalHeaders: [{
+        'Content-Type': 'application/json'
+      }],
+    }),
+    http,
+    options
+  );
+}
 
 @NgModule({
   imports: [
@@ -15,13 +42,14 @@ import { AuthService, UserService } from './services/';
     ProfileModule,
   ],
   providers: [
-    provideAuth({
-      tokenGetter: (() => {
-        let storage = new LocalStorageService();
-
-        return storage.retrieve('token');
-      }),
-    }),
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [
+        Http,
+        RequestOptions,
+      ],
+    },
     JwtHelper,
     AuthService,
     UserService,
