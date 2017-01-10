@@ -8,6 +8,8 @@ import { MaterialModule, MdIconRegistry } from '@angular/material';
 import { MomentModule } from 'angular2-moment';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
+import 'hammerjs';
+
 import { Directives } from './directives/';
 import { Config } from './../config/config';
 
