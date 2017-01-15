@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { AboutItemInterface } from './interfaces/';
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -7,7 +9,12 @@ import { Component } from '@angular/core';
 })
 
 export class AboutComponent {
-  libraries: any[] = [
+  /**
+   * Collection of used libraries.
+   *
+   * @type {AboutItemInterface[]}
+   */
+  public libraries: AboutItemInterface[] = [
     {
       name: 'Angular 2',
       logo: '/assets/angular.png',
@@ -24,7 +31,12 @@ export class AboutComponent {
     },
   ];
 
-  externalLinks: any[] = [
+  /**
+   * Collection of external links.
+   *
+   * @type {AboutItemInterface[]}
+   */
+  public externalLinks: AboutItemInterface[] = [
     {
       name: 'Angular 2',
       logo: '/assets/angular.png',
@@ -44,6 +56,4 @@ export class AboutComponent {
       url: 'http://momentjs.com/',
     },
   ];
-
-  constructor() { }
 }
