@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
+import { FooterItemInterface } from './interfaces/';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -8,7 +10,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 
 export class FooterComponent {
-  public links: any[] = [
+  public links: FooterItemInterface[] = [
     {
       name: 'GitHub',
       url: 'https://github.com/tarlepp/angular2-frontend',
@@ -25,6 +27,4 @@ export class FooterComponent {
       icon: 'person',
     },
   ];
-
-  constructor() { }
 }
