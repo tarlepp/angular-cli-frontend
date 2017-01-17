@@ -1,15 +1,17 @@
 <div class="footer">
   <md-toolbar color="primary">
-    <div appFlex></div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+      <span *ngFor="let link of links">
+        <a href="{{ link.url }}" target="_blank">
+          <md-icon>{{ link.icon }}</md-icon>
 
-    <span *ngFor="let link of links">
-      <a href="{{link.url}}" target="_blank">
-        <md-icon>{{link.icon}}</md-icon>
+          <span>{{ link.name }}</span>
+        </a>
+      </span>
 
-        <span>{{link.name}}</span>
-      </a>
-    </span>
+      <div fxFlex></div>
 
-    <div appFlex></div>
+      <small>{{ version }}</small>
+    </div>
   </md-toolbar>
 </div>

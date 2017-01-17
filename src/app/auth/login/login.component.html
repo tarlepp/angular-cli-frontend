@@ -1,32 +1,33 @@
-<div class="container">
+<div fxLayout="column" fxLayoutAlign="center center" fxFill>
   <md-card class="login">
     <md-toolbar color="primary">Login</md-toolbar>
 
-    <md-card-content appFlex>
+    <md-card-content>
       <md-spinner *ngIf="loading" color="accent"></md-spinner>
 
       <form #loginForm="ngForm" (submit)="login($event)" novalidate autocomplete="off"
         [class.opacity-50]="loading"
       >
-        <div appLayout="row" appLayoutAlign="center">
+        <div fxLayout="row" fxLayoutAlign="center center">
           <md-icon>person</md-icon>
-          <md-input name="username" placeholder="Username or email" type="text" required appFlex
+          <md-input name="username" placeholder="Username or email" type="text" required fxFill
             [(ngModel)]="username"
             [disabled]="loading"
             #usernameControl
+            autofocus="true"
           ></md-input>
         </div>
 
-        <div appLayout="row" appLayoutAlign="center">
+        <div fxLayout="row" fxLayoutAlign="center center">
           <md-icon>security</md-icon>
-          <md-input name="password" placeholder="Password" type="password" required appFlex
+          <md-input name="password" placeholder="Password" type="password" required fxFill
             [(ngModel)]="password"
             [disabled]="loading"
             #passwordControl
           ></md-input>
         </div>
 
-        <div appLayout="row" appLayoutJustify="center">
+        <div>
           <button type="submit" md-raised-button color="primary"
             [disabled]="loginForm.invalid || loading"
           >Login</button>

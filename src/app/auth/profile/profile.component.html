@@ -1,18 +1,15 @@
-<div class="normal-content">
+<div class="normal-content" fxLayout="row" fxLayoutAlign="space-between start" fxFill>
+  <div fxFlex>
+    <h2 class="md-subhead">Profile data from JWT</h2>
 
-  <div appLayout="row" appFlex>
-    <div appFlex="47.5%">
-      <h2 class="md-subhead">Profile data from JWT</h2>
+    <pre>{{ profileLocal | json }}</pre>
+  </div>
 
-      <pre>{{ profileLocal | json }}</pre>
-    </div>
+  <div fxFlex="5"></div>
 
-    <div appFlex="5%"></div>
+  <div fxFlex>
+    <h2 class="md-subhead">Profile data from Backend</h2>
 
-    <div appFlex="47.5%">
-      <h2 class="md-subhead">Profile data from Backend</h2>
-
-      <pre>{{ profileRemote$ | async | json }}</pre>
-    </div>
+    <pre>{{ profileRemote$ | async | json }}</pre>
   </div>
 </div>

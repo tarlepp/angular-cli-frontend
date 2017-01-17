@@ -10,6 +10,8 @@ import { FooterItemInterface } from './interfaces/';
 })
 
 export class FooterComponent {
+  public version = require('../../../../package.json').version;
+
   public links: FooterItemInterface[] = [
     {
       name: 'GitHub',

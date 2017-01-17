@@ -5,13 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { MaterialModule, MdIconRegistry } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MomentModule } from 'angular2-moment';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
 import 'hammerjs';
 
 import { Directives } from './directives/';
-import { Config } from './../config/config';
+import { Config } from '../config/config';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { Config } from './../config/config';
     HttpModule,
     RouterModule,
     MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot(),
     MomentModule,
     Ng2Webstorage,
   ],
@@ -38,6 +40,7 @@ import { Config } from './../config/config';
     HttpModule,
     RouterModule,
     MaterialModule,
+    FlexLayoutModule,
     MomentModule,
     Ng2Webstorage,
     ...Directives,
