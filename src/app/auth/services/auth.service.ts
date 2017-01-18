@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { AuthHttp } from 'angular2-jwt';
-import 'rxjs';
 
 import { Config } from '../../config/config';
 import { UserService } from './user.service';

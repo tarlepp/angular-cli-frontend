@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { JwtHelper, provideAuth } from 'angular2-jwt';
 import { LocalStorageService } from 'ng2-webstorage';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 class StubAuthService {
   // TODO, this is not the way this base test should be handled...

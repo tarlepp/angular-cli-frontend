@@ -1,4 +1,4 @@
-import { TestBed, inject} from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ng2-webstorage';
 import { JwtHelper } from 'angular2-jwt';
