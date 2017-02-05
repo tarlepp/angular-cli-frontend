@@ -1,10 +1,10 @@
-import { Angular2FrontendPage } from './app.po';
+import { AngularCliFrontendPage } from './app.po';
 
-describe('angular2-frontend App', function() {
-  let page: Angular2FrontendPage;
+describe('angular-cli-frontend App', function() {
+  let page: AngularCliFrontendPage;
 
   beforeEach(() => {
-    page = new Angular2FrontendPage();
+    page = new AngularCliFrontendPage();
   });
 
   it('should display message saying app works', () => {
