@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   @Input()
   password: string;
 
-  public loading: boolean = false;
+  public loading = false;
 
   /**
    * Constructor of the class.

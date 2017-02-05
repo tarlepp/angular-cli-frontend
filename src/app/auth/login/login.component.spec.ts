@@ -27,7 +27,7 @@ describe('Component: /auth/login/login.component.ts', () => {
         JwtHelper,
         provideAuth({
           tokenGetter: (() => {
-            let storage = new LocalStorageService();
+            const storage = new LocalStorageService();
 
             return storage.retrieve('token');
           }),

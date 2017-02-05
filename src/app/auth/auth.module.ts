@@ -22,7 +22,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     new AuthConfig({
       tokenName: 'token',
       tokenGetter: (() => {
-        let storage = new LocalStorageService();
+        const storage = new LocalStorageService();
 
         return storage.retrieve('token');
       }),

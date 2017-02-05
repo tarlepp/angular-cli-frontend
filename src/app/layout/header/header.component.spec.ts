@@ -29,7 +29,7 @@ describe('Component: /layout/footer/footer.component.ts', () => {
         JwtHelper,
         provideAuth({
           tokenGetter: (() => {
-            let storage = new LocalStorageService();
+            const storage = new LocalStorageService();
 
             return storage.retrieve('token');
           }),
