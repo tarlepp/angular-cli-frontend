@@ -25,7 +25,7 @@ import { Config } from '../config/config';
     HttpModule,
     RouterModule,
     MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot(),
+    FlexLayoutModule,
     MomentModule,
     Ng2Webstorage,
   ],
