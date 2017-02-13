@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MdInput } from '@angular/material';
 
 import { AuthService, UserService } from '../services/';
+import { MessageService } from '../../shared/services/';
 
 @Component({
   selector: 'app-login',
@@ -29,13 +30,15 @@ export class LoginComponent implements OnInit {
   /**
    * Constructor of the class.
    *
-   * @param {AuthService}         authService
-   * @param {UserService}         userService
-   * @param {Router}              router
+   * @param {AuthService}     authService
+   * @param {UserService}     userService
+   * @param {MessageService}  messageService
+   * @param {Router}          router
    */
   constructor(
     private authService: AuthService,
     private userService: UserService,
+    private messageService: MessageService,
     private router: Router
   ) { }
 
@@ -69,13 +72,18 @@ export class LoginComponent implements OnInit {
           // Store tokens for current user
           this.userService.storeTokens(data);
 
+          // Fetch user profile from token
+          const profile = this.userService.profile();
+
+          this.messageService.simple(`Welcome ${profile.surname}, ${profile.firstname}!`);
+
           // And redirect user to profile page
           this.router.navigate(['auth/profile']);
 
           this.loading = false;
         },
         (error) => {
-          console.log('Login error',  error);
+          this.messageService.simple(error.message);
 
           // Clear local storage data
           this.userService.erase();
