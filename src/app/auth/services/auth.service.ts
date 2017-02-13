@@ -4,25 +4,31 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthHttp } from 'angular2-jwt';
 
+import 'rxjs/add/observable/throw';
+import 'rxjs/operator/map';
+
 import { Config } from '../../config/config';
 import { UserService } from './user.service';
 import { ProfileDataBackendInterface, TokenDataInterface } from './interfaces/';
+import { MessageService } from '../../shared/services/message.service';
 
 @Injectable()
 export class AuthService {
   /**
    * Constructor of the class.
    *
-   * @param {Http}        http
-   * @param {AuthHttp}    authHttp
-   * @param {Router}      router
-   * @param {UserService} userService
+   * @param {Http}            http
+   * @param {AuthHttp}        authHttp
+   * @param {Router}          router
+   * @param {UserService}     userService
+   * @param {MessageService}  messageService
    */
-  constructor(
+  public constructor(
     private http: Http,
     private authHttp: AuthHttp,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private messageService: MessageService
   ) { }
 
   /**
@@ -35,9 +41,7 @@ export class AuthService {
     return this.http
       .post(`${Config.API.URL}auth/getToken`, credentials)
       .map((res: Response) => res.json())
-      .catch((error: any) => {
-        return Observable.throw(error.json().message || 'Invalid credentials');
-      })
+      .catch((error: any) => Observable.throw(error.json() || 'Invalid credentials'))
     ;
   }
 
@@ -48,6 +52,8 @@ export class AuthService {
    */
   public logout() {
     this.userService.erase();
+
+    this.messageService.simple('Logged out successfully');
 
     return this.router.navigate(['auth/login']);
   }
