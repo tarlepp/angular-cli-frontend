@@ -9,7 +9,7 @@ export class MessageService {
    *
    * @param {MdSnackBar}  snackBar
    */
-  constructor(private snackBar: MdSnackBar) {}
+  public constructor(private snackBar: MdSnackBar) {}
 
   /**
    * Method to show simple snack-bar / toast on page.
@@ -20,7 +20,7 @@ export class MessageService {
    *
    * @returns {MdSnackBarRef<SimpleSnackBar>}
    */
-  simple(message: string, showCloseButton = false, duration = 5000): MdSnackBarRef<SimpleSnackBar> {
+  public simple(message: string, showCloseButton = false, duration = 6000): MdSnackBarRef<SimpleSnackBar> {
     const ref = this.snackBar.open(message, showCloseButton ? 'close' : null, { duration: duration });
 
     ref.onAction().subscribe(() => {});
