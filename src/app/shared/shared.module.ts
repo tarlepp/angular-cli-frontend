@@ -13,6 +13,7 @@ import 'hammerjs';
 
 import { Directives } from './directives/';
 import { Config } from '../config/config';
+import { Services } from './services/';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Config } from '../config/config';
   providers: [
     MdIconRegistry,
     Config,
+    ...Services,
   ],
   exports: [
     CommonModule,

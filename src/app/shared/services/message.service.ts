@@ -1,0 +1,30 @@
+import { Injectable } from '@angular/core';
+import { MdSnackBar, MdSnackBarRef } from '@angular/material/snack-bar';
+import { SimpleSnackBar } from '@angular/material/snack-bar/simple-snack-bar';
+
+@Injectable()
+export class MessageService {
+  /**
+   * Constructor of the class
+   *
+   * @param {MdSnackBar}  snackBar
+   */
+  constructor(private snackBar: MdSnackBar) {}
+
+  /**
+   * Method to show simple snack-bar / toast on page.
+   *
+   * @param {string}  message
+   * @param {boolean} showCloseButton
+   * @param {number}  duration
+   *
+   * @returns {MdSnackBarRef<SimpleSnackBar>}
+   */
+  simple(message: string, showCloseButton = false, duration = 5000): MdSnackBarRef<SimpleSnackBar> {
+    const ref = this.snackBar.open(message, showCloseButton ? 'close' : null, { duration: duration });
+
+    ref.onAction().subscribe(() => {});
+
+    return ref;
+  }
+}
