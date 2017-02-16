@@ -1,6 +1,5 @@
-import { Component, ViewEncapsulation, Input, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, Input, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MdInput } from '@angular/material';
 
 import { AuthService, UserService } from '../services/';
 import { MessageService } from '../../shared/services/';
@@ -12,12 +11,12 @@ import { MessageService } from '../../shared/services/';
   encapsulation: ViewEncapsulation.None,
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChild('usernameControl')
-  usernameControl: MdInput;
+  usernameControl: ElementRef;
 
   @ViewChild('passwordControl')
-  passwordControl: MdInput;
+  passwordControl: ElementRef;
 
   @Input()
   username: string;
@@ -42,9 +41,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  /**
-   * On component init we want to set focus to username / email input.
-   */
+  // On component init we want to set focus to username / email input.
   ngOnInit(): void {
     // Reset form data
     this.username = '';
@@ -52,6 +49,13 @@ export class LoginComponent implements OnInit {
 
     // Remove loading
     this.loading = false;
+  }
+
+  // Set focus to username / email input
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.usernameControl.nativeElement.focus();
+    }, 500);
   }
 
   /**
@@ -75,12 +79,13 @@ export class LoginComponent implements OnInit {
           // Fetch user profile from token
           const profile = this.userService.profile();
 
+          this.loading = false;
+
+          // Attach message
           this.messageService.simple(`Welcome ${profile.surname}, ${profile.firstname}!`);
 
           // And redirect user to profile page
-          this.router.navigate(['auth/profile']);
-
-          this.loading = false;
+          return this.router.navigate(['auth/profile']);
         },
         (error) => {
           this.messageService.simple(error.message);

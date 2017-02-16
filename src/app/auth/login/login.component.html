@@ -8,24 +8,27 @@
       <form #loginForm="ngForm" (submit)="login($event)" novalidate autocomplete="off"
         [class.opacity-50]="loading"
       >
-        <div fxLayout="row" fxLayoutAlign="center center">
-          <md-icon>person</md-icon>
-          <md-input name="username" placeholder="Username or email" type="text" required fxFill
+        <md-input-container>
+          <md-icon md-prefix>person</md-icon>
+
+          <input name="username" placeholder="Username or email" type="text" required
+            mdInput
             [(ngModel)]="username"
             [disabled]="loading"
             #usernameControl
-            autofocus="true"
-          ></md-input>
-        </div>
+          />
+        </md-input-container>
 
-        <div fxLayout="row" fxLayoutAlign="center center">
-          <md-icon>security</md-icon>
-          <md-input name="password" placeholder="Password" type="password" required fxFill
+        <md-input-container>
+          <md-icon md-prefix>security</md-icon>
+
+          <input name="password" placeholder="Password" type="password" required
+            mdInput
             [(ngModel)]="password"
             [disabled]="loading"
             #passwordControl
-          ></md-input>
-        </div>
+          />
+        </md-input-container>
 
         <div>
           <button type="submit" md-raised-button color="primary"

@@ -2,10 +2,12 @@ import { TestBed, inject } from '@angular/core/testing';
 import { Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { MdSnackBar, MaterialModule } from '@angular/material';
 import { AuthHttp, provideAuth, JwtHelper } from 'angular2-jwt';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { AuthService, UserService } from './';
+import { MessageService } from '../../shared/services/';
 
 describe('Service: /auth/services/auth.service.ts', () => {
   beforeEach(() => {
@@ -13,14 +15,17 @@ describe('Service: /auth/services/auth.service.ts', () => {
       imports: [
         HttpModule,
         RouterModule.forRoot([]),
+        MaterialModule,
       ],
       providers: [
         AuthService,
         UserService,
+        MessageService,
         Http,
         AuthHttp,
         ConnectionBackend,
         JwtHelper,
+        MdSnackBar,
         LocalStorageService,
         provideAuth({
           tokenGetter: (() => {

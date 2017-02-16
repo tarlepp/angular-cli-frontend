@@ -25,7 +25,7 @@ import { Services } from './services/';
     FormsModule,
     HttpModule,
     RouterModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     FlexLayoutModule,
     MomentModule,
     Ng2Webstorage,
