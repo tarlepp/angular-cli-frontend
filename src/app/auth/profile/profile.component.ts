@@ -1,36 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
-import { AuthService, UserService } from '../services/';
 import { ProfileDataBackendInterface, ProfileDataJwtInterface } from '../services/interfaces/';
+import { ActivatedRoute } from '@angular/router';
+import { ProfileComponentResolveInterface } from './interfaces/';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
 
 export class ProfileComponent implements OnInit {
   public profileLocal: ProfileDataJwtInterface;
-  public profileRemote$: Observable<ProfileDataBackendInterface>;
+  public profileRemote: ProfileDataBackendInterface;
 
   /**
    * Constructor of the class.
    *
-   * @param {AuthService} authService
-   * @param {UserService} userService
+   * @param {ActivatedRoute} activatedRoute
    */
-  constructor(
-    private authService: AuthService,
-    private userService: UserService
-  ) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   /**
-   * On init we want to fetch current user profile from local storage and backend, so that we can show those on the
-   * template. Note that backend side data is observable on this case.
+   * On component init we store resolved data, so that we can use those on GUI.
    */
   ngOnInit(): void {
-    this.profileLocal = this.userService.profile();
-    this.profileRemote$ = this.authService.profile();
+    this.activatedRoute.data.subscribe((data: ProfileComponentResolveInterface) => {
+      this.profileLocal = data.profileLocal;
+      this.profileRemote = data.profileRemote;
+    });
   }
 }
