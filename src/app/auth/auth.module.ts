@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Http, RequestOptions } from '@angular/http';
 import { JwtHelper, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { LocalStorageService } from 'ng2-webstorage';
 
@@ -7,7 +7,6 @@ import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
 import { AnonymousGuard, AuthenticationGuard } from './guards/';
 import { AuthService, UserService } from './services/';
-import { Http, RequestOptions } from '@angular/http';
 
 /**
  * AuthHttp service factory to override some config values.
@@ -37,7 +36,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   imports: [
-    CommonModule,
     LoginModule,
     ProfileModule,
   ],
