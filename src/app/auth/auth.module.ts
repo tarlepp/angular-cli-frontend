@@ -7,6 +7,7 @@ import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
 import { AnonymousGuard, AuthenticationGuard } from './guards/';
 import { AuthService, UserService } from './services/';
+import { AuthRoutingModule } from './auth-routing.module';
 
 /**
  * AuthHttp service factory to override some config values.
@@ -38,6 +39,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   imports: [
     LoginModule,
     ProfileModule,
+    AuthRoutingModule,
   ],
   providers: [
     {

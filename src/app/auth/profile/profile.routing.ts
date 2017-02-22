@@ -6,7 +6,7 @@ import { ProfileLocalResolver, ProfileRemoteResolver } from './resolves/';
 
 export const ProfileRoutes: Routes = [
   {
-    path: 'auth/profile',
+    path: 'profile',
     component: ProfileComponent,
     canActivate: [
       AuthenticationGuard,

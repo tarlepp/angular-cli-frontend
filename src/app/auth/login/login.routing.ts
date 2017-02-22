@@ -5,7 +5,7 @@ import { AnonymousGuard } from '../guards/';
 
 export const LoginRoutes: Routes = [
   {
-    path: 'auth/login',
+    path: 'login',
     component: LoginComponent,
     canActivate: [
       AnonymousGuard,
