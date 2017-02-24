@@ -1,6 +1,7 @@
 {
   "name": "angular-cli-frontend",
   "version": "0.0.0",
+  "author": "Tarmo Leppänen <tarmo.leppanen@protacon.com>",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
