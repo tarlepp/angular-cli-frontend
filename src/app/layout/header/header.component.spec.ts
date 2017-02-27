@@ -8,12 +8,12 @@ import { HeaderComponent } from './header.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService, UserService } from '../../auth/services/';
 
-describe('Component: /layout/footer/footer.component.ts', () => {
+describe('Component: /layout/header/header.component.ts', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
       declarations: [
         HeaderComponent,
       ],

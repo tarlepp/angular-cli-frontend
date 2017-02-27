@@ -28,7 +28,7 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
       navigate: (commands: any[]) => commands,
     };
 
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
       providers: [
         AnonymousGuard,
         {
@@ -42,7 +42,8 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
         UserService,
         JwtHelper,
       ],
-    });
+    })
+    .compileComponents();
   });
 
   it('should create the guard', inject([AnonymousGuard], (guard: AnonymousGuard) => {

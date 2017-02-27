@@ -8,12 +8,12 @@ describe('Component: /about/about.component.ts', () => {
   let fixture: ComponentFixture<AboutComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
       declarations: [
         AboutComponent,
       ],
       imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
       ],
     })
     .compileComponents();
