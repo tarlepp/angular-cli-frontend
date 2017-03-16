@@ -2,16 +2,16 @@
 # yarn lockfile v1
 
 
-"@angular/cli@1.0.0-rc.1":
-  version "1.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.0.0-rc.1.tgz#102b2bf47a9d74a581d6d1821ce2daf0594d3145"
+"@angular/cli@1.0.0-rc.2":
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.0.0-rc.2.tgz#ca8b248ede5aaac8ca4a3d165745e93479564a4a"
   dependencies:
     "@angular/compiler" ">=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@angular/compiler-cli" ">=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@angular/core" ">=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@angular/tsc-wrapped" ">=0.5.0 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@ngtools/json-schema" "1.0.5"
-    "@ngtools/webpack" "1.2.12"
+    "@ngtools/webpack" "1.2.13"
     autoprefixer "^6.5.3"
     chalk "^1.1.3"
     common-tags "^1.3.1"
@@ -73,17 +73,9 @@
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.4.9.tgz#3094f973e18330526256dcd13fcf27609b7abc08"
 
-"@angular/compiler-cli@2.4.9":
+"@angular/compiler-cli@2.4.9", "@angular/compiler-cli@>=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0":
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.4.9.tgz#8ac4e28c12d2b09a10aabf9cb95c569844b90db3"
-  dependencies:
-    "@angular/tsc-wrapped" "0.5.2"
-    minimist "^1.2.0"
-    reflect-metadata "^0.1.2"
-
-"@angular/compiler-cli@>=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0":
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.4.8.tgz#6dad3b467243166bf2515d21993d2d1a4700a161"
   dependencies:
     "@angular/tsc-wrapped" "0.5.2"
     minimist "^1.2.0"
@@ -93,13 +85,9 @@
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.4.9.tgz#ee159181c4013046598e1d176b45063bddb141f6"
 
-"@angular/core@2.4.9":
+"@angular/core@2.4.9", "@angular/core@>=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0":
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.4.9.tgz#85dca2afa4021be91512c97597702ac8d73092e6"
-
-"@angular/core@>=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0":
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.4.8.tgz#bf1a4fc324827516e6c3222047a9b2cbdaee6976"
 
 "@angular/flex-layout@2.0.0-rc.1":
   version "2.0.0-rc.1"
@@ -139,18 +127,18 @@
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.0.5.tgz#ad39037c70c88b245ac7267a71777646b6063d77"
 
-"@ngtools/webpack@1.2.12":
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.2.12.tgz#19142e760a30172806acc7363e590d870cb30c26"
+"@ngtools/webpack@1.2.13":
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.2.13.tgz#543237cd6ef49b59140114a5c0e8757b15d6e133"
   dependencies:
     enhanced-resolve "^3.1.0"
     loader-utils "^1.0.2"
     magic-string "^0.19.0"
     source-map "^0.5.6"
 
-"@types/jasmine@2.5.45":
-  version "2.5.45"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.45.tgz#58928a621d014ce6ab59c5a9c41071f7328b0ca9"
+"@types/jasmine@2.5.46":
+  version "2.5.46"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.46.tgz#bb3047a3f40f60dee03f52c3e2d955cd3d5066c8"
 
 "@types/node@7.0.8":
   version "7.0.8"
@@ -239,9 +227,9 @@ angular2-jwt@0.1.28:
   version "0.1.28"
   resolved "https://registry.yarnpkg.com/angular2-jwt/-/angular2-jwt-0.1.28.tgz#4896dbb88ec561382cf485ff9eaa6f96a683f4d1"
 
-angular2-moment@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/angular2-moment/-/angular2-moment-1.3.0.tgz#6022cf279518e0b97fd743c22b5b93961030f4e7"
+angular2-moment@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/angular2-moment/-/angular2-moment-1.3.1.tgz#016e938d06a0feae046bd1ba49c692793b659c21"
   dependencies:
     moment "^2.16.0"
 
@@ -3331,9 +3319,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ng2-webstorage@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/ng2-webstorage/-/ng2-webstorage-1.5.0.tgz#65c8c1269d2bcff99a14299eaf16ca7a0105ec5e"
+ng2-webstorage@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/ng2-webstorage/-/ng2-webstorage-1.5.1.tgz#0daadf422ef7afcd37bb10d39f5f9511884ebc02"
 
 no-case@^2.2.0:
   version "2.3.0"
@@ -5722,9 +5710,9 @@ yn@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/yn/-/yn-1.2.0.tgz#d237a4c533f279b2b89d3acac2db4b8c795e4a63"
 
-zone.js@0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.0.tgz#d5fbfd04aa91401cd848b2baa3d00643b864dfa6"
+zone.js@0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.4.tgz#cc40ae5a1c879601c5ebba2096b5c80f0c4c3602"
 
 zone.js@^0.7.2:
   version "0.7.7"
