@@ -1,6 +1,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
 
@@ -14,6 +15,7 @@ describe('Component: /app.component.ts', () => {
         AppComponent,
       ],
       imports: [
+        TranslateModule.forRoot(),
         RouterModule.forRoot([]),
       ],
       providers: [
@@ -21,6 +23,7 @@ describe('Component: /app.component.ts', () => {
           provide: APP_BASE_HREF,
           useValue : '/'
         },
+        TranslateService,
       ],
     })
     .compileComponents();
