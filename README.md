@@ -72,7 +72,7 @@ $ yarn install  # or yarn
 ```
 
 ### Configuration
-See ```/src/app/env_example.js``` file and copy it to ```/src/app/env.js``` file and make
+See ```/src/env_example.js``` file and copy it to ```/src/env.js``` file and make
 necessary changes to it.
 
 ## Backend for this application
