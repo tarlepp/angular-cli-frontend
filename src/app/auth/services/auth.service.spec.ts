@@ -7,7 +7,7 @@ import { AuthHttp, provideAuth, JwtHelper } from 'angular2-jwt';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { AuthService, UserService } from './';
-import { MessageService } from '../../shared/services/';
+import { MessageService, ConfigService } from '../../shared/services/';
 
 describe('Service: /auth/services/auth.service.ts', () => {
   beforeEach(() => {
@@ -21,6 +21,7 @@ describe('Service: /auth/services/auth.service.ts', () => {
         AuthService,
         UserService,
         MessageService,
+        ConfigService,
         Http,
         AuthHttp,
         ConnectionBackend,
@@ -37,6 +38,10 @@ describe('Service: /auth/services/auth.service.ts', () => {
         {
           provide: APP_BASE_HREF,
           useValue : '/',
+        },
+        {
+          provide: 'Window',
+          useValue: window
         },
       ],
     });

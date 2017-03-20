@@ -72,8 +72,8 @@ $ yarn install  # or yarn
 ```
 
 ### Configuration
-See ```/src/app/config/config.ts_example``` file and copy it to ```/src/app/config/config.ts``` file and make
-necessary changes to it. Note that you need a Firebase account to get all necessary config values.
+See ```/src/app/env_example.js``` file and copy it to ```/src/app/env.js``` file and make
+necessary changes to it.
 
 ## Backend for this application
 This application relies that your backend implements following functionality.
@@ -154,4 +154,4 @@ Tarmo Leppänen
 ## License
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2016 Tarmo Leppänen
+Copyright (c) 2017 Tarmo Leppänen

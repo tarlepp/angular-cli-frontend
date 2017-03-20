@@ -7,10 +7,9 @@ import { AuthHttp } from 'angular2-jwt';
 import 'rxjs/add/observable/throw';
 import 'rxjs/operator/map';
 
-import { Config } from '../../config/config';
 import { UserService } from './user.service';
 import { ProfileDataBackendInterface, TokenDataInterface } from './interfaces/';
-import { MessageService } from '../../shared/services/message.service';
+import { MessageService, ConfigService } from '../../shared/services/';
 
 @Injectable()
 export class AuthService {
@@ -22,13 +21,15 @@ export class AuthService {
    * @param {Router}          router
    * @param {UserService}     userService
    * @param {MessageService}  messageService
+   * @param {ConfigService}   configService
    */
   public constructor(
     private http: Http,
     private authHttp: AuthHttp,
     private router: Router,
     private userService: UserService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private configService: ConfigService
   ) { }
 
   /**
@@ -37,9 +38,9 @@ export class AuthService {
    * @param credentials
    * @returns {Observable<TokenDataInterface>}
    */
-  public login(credentials): Observable<TokenDataInterface> {
+  public login(credentials): any {
     return this.http
-      .post(`${Config.API.URL}auth/getToken`, credentials)
+      .post(`${this.configService.getApiUrl()}auth/getToken`, credentials)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json() || 'Invalid credentials'))
     ;
@@ -65,7 +66,7 @@ export class AuthService {
    */
   public profile(): Observable<ProfileDataBackendInterface> {
     return this.authHttp
-      .get(`${Config.API.URL}auth/profile`)
+      .get(`${this.configService.getApiUrl()}auth/profile`)
       .map((response: Response) => response.json())
       .catch((error: any) => {
         this.logout();

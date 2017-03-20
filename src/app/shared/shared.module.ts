@@ -13,9 +13,9 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import 'hammerjs';
 
 import { Directives } from './directives/';
-import { Config } from '../config/config';
 import { Services } from './services/';
 import { HttpLoaderFactory } from './translation/http-loader-factory';
+import { ConfigService } from './services/config.service';
 
 @NgModule({
   declarations: [
@@ -35,13 +35,16 @@ import { HttpLoaderFactory } from './translation/http-loader-factory';
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [Http]
+        deps: [Http, ConfigService]
       }
     }),
   ],
   providers: [
+    {
+      provide: 'Window',
+      useValue: window
+    },
     MdIconRegistry,
-    Config,
     ...Services,
   ],
   exports: [
