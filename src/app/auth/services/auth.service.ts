@@ -38,7 +38,7 @@ export class AuthService {
    * @param credentials
    * @returns {Observable<TokenDataInterface>}
    */
-  public login(credentials): any {
+  public login(credentials): Observable<TokenDataInterface> {
     return this.http
       .post(`${this.configService.getApiUrl()}auth/getToken`, credentials)
       .map((res: Response) => res.json())
