@@ -19,12 +19,17 @@ export class TranslationLoader implements TranslateLoader {
   /**
    * Gets the translations from the server
    *
-   * @param {string}  lang
+   * @param {string}  language
    * @returns {Observable<any>}
    */
-  public getTranslation(lang: string): Observable<any> {
+  public getTranslation(language: string): Observable<any> {
+    const url = this.configService.get('USE_LOCAL_TRANSLATIONS')
+      ? `./assets/i18n/`
+      : `${this.configService.getApiUrl()}translation/`
+    ;
+
     return this.http
-      .get(`${this.configService.getApiUrl()}translation/${lang}.json`)
+      .get(`${url}${language}.json`)
       .map((res: Response) => res.json());
   }
 }
