@@ -35,7 +35,7 @@
     "zone.js": "0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-rc.2",
+    "@angular/cli": "1.0.0-rc.4",
     "@angular/compiler-cli": "2.4.10",
     "@types/jasmine": "2.5.46",
     "@types/node": "7.0.8",
@@ -51,7 +51,7 @@
     "karma-phantomjs-launcher": "1.0.4",
     "karma-remap-istanbul": "0.6.0",
     "protractor": "5.1.1",
-    "ts-node": "2.1.0",
+    "ts-node": "3.0.0",
     "tslint": "4.5.1",
     "typescript": "2.2.1"
   }
