@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ConfigService } from './config.service';
+import { ConfigService } from '../services/config.service';
 
 @Injectable()
 export class TranslationService {
@@ -23,9 +23,7 @@ export class TranslationService {
   ) {
     // Determine what url to use to fetch these translations; 1) local 2) remote
     this.translationUrl = this.configService.get('USE_LOCAL_TRANSLATIONS')
-      ? `./assets/i18n/`
-      : `${this.configService.getApiUrl()}translation/`
-    ;
+      ? `./assets/i18n/` : `${this.configService.getApiUrl()}translation/`;
   }
 
   /**

@@ -24,9 +24,7 @@ export class TranslationLoader implements TranslateLoader {
    */
   public getTranslation(language: string): Observable<any> {
     const url = this.configService.get('USE_LOCAL_TRANSLATIONS')
-      ? `./assets/i18n/`
-      : `${this.configService.getApiUrl()}translation/`
-    ;
+      ? `./assets/i18n/` : `${this.configService.getApiUrl()}translation/`;
 
     return this.http
       .get(`${url}${language}.json`)

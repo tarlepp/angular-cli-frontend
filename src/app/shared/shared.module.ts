@@ -2,20 +2,19 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { MaterialModule, MdIconRegistry } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MomentModule } from 'angular2-moment';
 import { Ng2Webstorage } from 'ng2-webstorage';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import 'hammerjs';
 
 import { Directives } from './directives/';
 import { Services } from './services/';
-import { HttpLoaderFactory } from './translation/http-loader-factory';
-import { ConfigService } from './services/config.service';
+import { Guards } from './guards/';
+import { TranslationModule } from './translation/translation.module';
 
 @NgModule({
   declarations: [
@@ -31,13 +30,7 @@ import { ConfigService } from './services/config.service';
     FlexLayoutModule,
     MomentModule,
     Ng2Webstorage,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [Http, ConfigService]
-      }
-    }),
+    TranslationModule,
   ],
   providers: [
     {
@@ -45,6 +38,7 @@ import { ConfigService } from './services/config.service';
       useValue: window
     },
     MdIconRegistry,
+    ...Guards,
     ...Services,
   ],
   exports: [
@@ -57,7 +51,7 @@ import { ConfigService } from './services/config.service';
     FlexLayoutModule,
     MomentModule,
     Ng2Webstorage,
-    TranslateModule,
+    TranslationModule,
     ...Directives,
   ],
 })
