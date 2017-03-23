@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../../shared/shared.module';
-import { HeaderComponent } from './index';
+import { HeaderComponent, LocaleResolver } from './index';
 
 @NgModule({
   imports: [
@@ -13,6 +13,9 @@ import { HeaderComponent } from './index';
   exports: [
     HeaderComponent,
   ],
+  providers: [
+    LocaleResolver,
+  ]
 })
 
 export class HeaderModule { }

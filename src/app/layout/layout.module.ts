@@ -6,13 +6,9 @@ import { LayoutRoutingModule } from './layout-routing.module';
 
 @NgModule({
   imports: [
+    FooterModule,
+    HeaderModule,
     LayoutRoutingModule,
-    FooterModule,
-    HeaderModule,
-  ],
-  exports: [
-    FooterModule,
-    HeaderModule,
   ],
 })
 
