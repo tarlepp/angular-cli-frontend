@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ConfigService } from '../services/config.service';
 import { TranslationCacheService } from './translation-cache.service';
+import { LocaleInterface } from './interfaces/';
 
 @Injectable()
 export class TranslationService {
@@ -45,6 +46,17 @@ export class TranslationService {
           this.loadTranslationsForDomain(this.domain).subscribe();
         }
       });
+  }
+
+  /**
+   * Method to fetch supported locales.
+   *
+   * @returns {Observable<Array<LocaleInterface>>}
+   */
+  public getLocales(): Observable<Array<LocaleInterface>> {
+    return this.http
+      .get(`${this.translationUrl}locales.json`)
+      .map((res: Response) => res.json());
   }
 
   /**
