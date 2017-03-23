@@ -3,17 +3,20 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 
 import { ConfigService } from '../services/config.service';
+import { TranslationCacheService } from './translation-cache.service';
 
 export class TranslationLoader implements TranslateLoader {
   /**
    * Constructor of the class.
    *
-   * @param {Http}          http
-   * @param {ConfigService} configService
+   * @param {Http}                    http
+   * @param {ConfigService}           configService
+   * @param {TranslationCacheService} translationCacheService
    */
   constructor(
     private http: Http,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private translationCacheService: TranslationCacheService
   ) { }
 
   /**
@@ -28,6 +31,12 @@ export class TranslationLoader implements TranslateLoader {
 
     return this.http
       .get(`${url}${language}.json`)
-      .map((res: Response) => res.json());
+      .map((res: Response) => {
+        const translations = res.json();
+
+        this.translationCacheService.base(language, translations);
+
+        return translations;
+      });
   }
 }

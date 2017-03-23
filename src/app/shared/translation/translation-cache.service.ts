@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TranslationCacheService {
-  private cache: Object = {};
-  private base: Object = {};
+  private cacheDomain: Object = {};
+  private cacheBase: Object = {};
 
   /**
    * Method to store "base" domain translations to cache.
@@ -11,12 +11,12 @@ export class TranslationCacheService {
    * @param {string}  language
    * @param {Object}  translations
    */
-  public setBase(language: string, translations: Object): void {
-    if (!this.base.hasOwnProperty(language)) {
-      this.base[language] = {};
+  public base(language: string, translations: Object): void {
+    if (!this.cacheBase.hasOwnProperty(language)) {
+      this.cacheBase[language] = {};
     }
 
-    this.base[language] = translations;
+    this.cacheBase[language] = translations;
   }
 
   /**
@@ -27,7 +27,7 @@ export class TranslationCacheService {
    * @returns {boolean}
    */
   public cached(language: string, domain: string): boolean {
-    return this.cache.hasOwnProperty(language) && this.cache[language].hasOwnProperty(domain);
+    return this.cacheDomain.hasOwnProperty(language) && this.cacheDomain[language].hasOwnProperty(domain);
   }
 
   /**
@@ -38,11 +38,11 @@ export class TranslationCacheService {
    * @param {Object}  translations
    */
   public store(language: string, domain: string, translations: Object): void {
-    if (!this.cache.hasOwnProperty(language)) {
-      this.cache[language] = {};
+    if (!this.cacheDomain.hasOwnProperty(language)) {
+      this.cacheDomain[language] = {};
     }
 
-    this.cache[language][domain] = translations;
+    this.cacheDomain[language][domain] = translations;
   }
 
   /**
@@ -53,6 +53,6 @@ export class TranslationCacheService {
    * @returns {Object}
    */
   public get(language: string, domain: string): Object {
-    return Object.assign({}, this.base[language], this.cache[language][domain]);
+    return Object.assign({}, this.cacheBase[language], this.cacheDomain[language][domain]);
   }
 }
