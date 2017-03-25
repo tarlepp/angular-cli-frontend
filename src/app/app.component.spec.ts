@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
+import { SidenavService } from './layout/sidenav/sidenav.service';
+import { MaterialModule } from '@angular/material';
 
 describe('Component: /app.component.ts', () => {
   let component: AppComponent;
@@ -16,6 +18,7 @@ describe('Component: /app.component.ts', () => {
       ],
       imports: [
         TranslateModule.forRoot(),
+        MaterialModule,
         RouterModule.forRoot([]),
       ],
       providers: [
@@ -24,6 +27,7 @@ describe('Component: /app.component.ts', () => {
           useValue : '/'
         },
         TranslateService,
+        SidenavService,
       ],
     })
     .compileComponents();

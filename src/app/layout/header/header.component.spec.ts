@@ -7,6 +7,8 @@ import { AuthHttp, provideAuth, JwtHelper } from 'angular2-jwt';
 import { HeaderComponent } from './header.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService, UserService } from '../../auth/services/';
+import { SidenavService } from '../sidenav/sidenav.service';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('Component: /layout/header/header.component.ts', () => {
   let component: HeaderComponent;
@@ -38,6 +40,8 @@ describe('Component: /layout/header/header.component.ts', () => {
           provide: APP_BASE_HREF,
           useValue : '/',
         },
+        SidenavService,
+        TranslateService,
       ],
     })
     .compileComponents();
