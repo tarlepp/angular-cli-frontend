@@ -1,0 +1,33 @@
+<div class="container"
+  fxLayout="column"
+>
+  <md-nav-list>
+    <!-- Common menus for all -->
+    <md-list-item>
+      <a md-line [routerLink]="['/about']">About</a>
+    </md-list-item>
+
+    <!-- Menus for not logged in users -->
+    <div *ngIf="!user">
+      <md-list-item>
+        <a md-line [routerLink]="['/auth/login']">Login</a>
+      </md-list-item>
+    </div>
+
+    <!-- Menus for logged in users -->
+    <div *ngIf="user">
+      <md-list-item>
+        <a md-line [routerLink]="['/auth/profile']">Profile</a>
+      </md-list-item>
+      <md-list-item>
+        <a md-line disabled [routerLink]="['/examples/authors']">Examples: Authors</a>
+      </md-list-item>
+      <md-list-item>
+        <a md-line disabled [routerLink]="['/examples/books']">Examples: Books</a>
+      </md-list-item>
+      <md-list-item>
+        <a md-line (click)="authService.logout()">Logout</a>
+      </md-list-item>
+    </div>
+  </md-nav-list>
+</div>

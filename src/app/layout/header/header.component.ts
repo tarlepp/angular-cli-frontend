@@ -6,6 +6,8 @@ import { LocalStorageService } from 'ng2-webstorage';
 import { AuthService, UserService } from '../../auth/services/';
 import { LocaleInterface } from '../../shared/translation/';
 import { HeaderComponentResolveInterface } from './interfaces/';
+import { SidenavService } from '../sidenav/';
+
 
 @Component({
   selector: 'app-header',
@@ -21,17 +23,19 @@ export class HeaderComponent implements OnInit {
    * Constructor of the class.
    *
    * @param {AuthService}         authService
-   * @param {ActivatedRoute} activatedRoute
+   * @param {ActivatedRoute}      activatedRoute
    * @param {LocalStorageService} localStorage
    * @param {UserService}         userService
    * @param {TranslateService}    translateService
+   * @param {SidenavService}      sidenavService
    */
   constructor(
     public authService: AuthService,
     private activatedRoute: ActivatedRoute,
     private localStorage: LocalStorageService,
     private userService: UserService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private sidenavService: SidenavService
   ) { }
 
   /**
@@ -58,6 +62,15 @@ export class HeaderComponent implements OnInit {
    */
   public changeLocale(locale: LocaleInterface): void {
     this.translateService.use(locale.code);
+  }
+
+  /**
+   * Method to toggle application sidenav.
+   */
+  public toggleSidenav() {
+    this.sidenavService
+      .toggle()
+      .then(() => { });
   }
 
   /**

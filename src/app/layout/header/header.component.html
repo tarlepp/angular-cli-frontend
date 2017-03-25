@@ -1,23 +1,9 @@
 <div class="container">
   <md-toolbar color="primary">
     <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
-      <button md-icon-button [md-menu-trigger-for]="menu">
+      <button md-icon-button (click)="toggleSidenav()">
         <md-icon>more_vert</md-icon>
       </button>
-
-      <md-menu #menu="mdMenu">
-        <!-- Common menus for all -->
-        <button md-menu-item [routerLink]="['/about']">About</button>
-
-        <!-- Menus for not logged in users -->
-        <button *ngIf="!user" md-menu-item [routerLink]="['/auth/login']">Login</button>
-
-        <!-- Menus for logged in users -->
-        <button *ngIf="user" md-menu-item [routerLink]="['/auth/profile']">Profile</button>
-        <button *ngIf="user" disabled md-menu-item [routerLink]="['/examples/authors']">Examples: Authors</button>
-        <button *ngIf="user" disabled md-menu-item [routerLink]="['/examples/books']">Examples: Books</button>
-        <button *ngIf="user" md-menu-item (click)="authService.logout()">Logout</button>
-      </md-menu>
 
       <span>angular-cli-frontend</span>
 

@@ -1,12 +1,19 @@
+<md-sidenav-container fxFlex fxFlexFill>
+  <md-sidenav #sidenav>
+    <router-outlet name="sidenav"></router-outlet>
+  </md-sidenav>
 
-<header>
-  <router-outlet name="header"></router-outlet>
-</header>
+  <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlexFill>
+    <header>
+      <router-outlet name="header" ></router-outlet>
+    </header>
 
-<article fxFlex>
-  <router-outlet></router-outlet>
-</article>
+    <article fxFlex>
+      <router-outlet></router-outlet>
+    </article>
 
-<footer>
-  <router-outlet name="footer"></router-outlet>
-</footer>
+    <footer>
+      <router-outlet name="footer"></router-outlet>
+    </footer>
+  </div>
+</md-sidenav-container>
