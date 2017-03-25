@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -23,6 +24,7 @@ import { TranslationModule } from './translation/translation.module';
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     RouterModule,
@@ -44,6 +46,7 @@ import { TranslationModule } from './translation/translation.module';
   exports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     RouterModule,
