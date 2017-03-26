@@ -36,13 +36,13 @@ This is built with Angular-CLI tool.
 ## Used libraries, guides, etc.
 
 ### Libraries
- * [Angular 2](https://github.com/angular/angular)
- * [Material Design for Angular 2](https://github.com/angular/material2)
+ * [Angular](https://github.com/angular/angular)
+ * [Material Design components for Angular](https://github.com/angular/material2)
  * [angular2-jwt](https://github.com/auth0/angular2-jwt)
  * [Angular-CLI](https://github.com/angular/angular-cli)
  
 ### Guides
- * [Angular 2 style guide](https://angular.io/docs/ts/latest/guide/style-guide.html)
+ * [Angular style guide](https://angular.io/docs/ts/latest/guide/style-guide.html)
  
 ### Other resources
  * [Material design](https://www.google.com/design/spec/material-design/)
@@ -58,7 +58,7 @@ First of all you have to install `npm` and `node.js` to your box - note that `No
 First of all you have to install ```npm``` and ```node.js``` to your box. Installation instructions can
 be found [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager). 
 
-Note that ```node.js 6.x``` is required.
+Note that ```node.js 7.x``` is required.
 
 ```bash
 $ git clone https://github.com/tarlepp/angular-cli-frontend.git
