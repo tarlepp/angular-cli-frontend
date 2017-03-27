@@ -18,15 +18,26 @@ export class TranslationGuard implements CanActivate {
    *
    * @param {ActivatedRouteSnapshot}  next
    * @param {RouterStateSnapshot}     state
-   * @returns {Observable<any>}
+   * @returns {Observable<boolean>}
    */
   public canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
+    // Determine current domain name
+    const domain = next.pathFromRoot
+      .filter((routeSnapshot: ActivatedRouteSnapshot) => {
+        return routeSnapshot.routeConfig !== null;
+      })
+      .map((routeSnapshot: ActivatedRouteSnapshot) => {
+        return routeSnapshot.routeConfig.path;
+      })
+      .join('/');
+
+    // Create new observable and load translations for current domain
     return new Observable<boolean>(observer => {
       this.translationService
-        .loadTranslationsForDomain(next.routeConfig.path)
+        .loadTranslationsForDomain(domain)
         .subscribe(() => {
           observer.next(true);
           observer.complete();
