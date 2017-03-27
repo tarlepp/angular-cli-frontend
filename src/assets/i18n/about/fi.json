@@ -1,3 +1,9 @@
 {
-  "BAR": "ja merge toisesta domainista skulaa"
+  "TITLE": "Mikä tämä on?",
+  "CONTENT": "Tämän \"seed\" sovelluksen tarkoitus on antaa sinulle lähtöpiste, josta voit lähteä kehittämään omaa sovellustasi alla mainituilla ominaisuuksilla:",
+  "FEAT_JWT": "JWT pohjainen autentikointi",
+  "FEAT_ROLES": "Rooli-pohjainen näkymien suojaus",
+  "FEAT_TRANSLATIONS": "Käännöksien tuki joko .json tiedostoista tai ulkoiselta palvelimelta",
+  "USED_LIBRARIES": "Käytetyt kirjastot",
+  "EXTERNAL_LINKS": "Ulkoiset linkit"
 }

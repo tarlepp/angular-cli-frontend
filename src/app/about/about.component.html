@@ -1,13 +1,35 @@
-<div class="normal-content">
-  <h2>What is this?</h2>
+<div class="normal-content container"
+  fxLayout="column"
+>
+  <h2>{{ 'TITLE' | translate }}</h2>
 
   <p>
-    Main purpose of this seed application is to provide start point for your own application with following main
-    features:
+    {{ 'CONTENT' | translate }}
   </p>
 
   <ul>
-    <li>JWT Authentication</li>
-    <li>Role based protection for routes</li>
+    <li>{{ 'FEAT_JWT' | translate }}</li>
+    <li>{{ 'FEAT_ROLES' | translate }}</li>
+    <li>{{ 'FEAT_TRANSLATIONS' | translate }}</li>
   </ul>
+
+  <div fxLayout="row" fxLayoutAlign="space-around start">
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex>
+      <h3>{{ 'USED_LIBRARIES' | translate }}</h3>
+
+      <app-about-list
+        [className]="'used-libraries'"
+        [items]="libraries"
+      ></app-about-list>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex>
+      <h3>{{ 'EXTERNAL_LINKS' | translate }}</h3>
+
+      <app-about-list
+        [className]="'external-links'"
+        [items]="externalLinks"
+      ></app-about-list>
+    </div>
+  </div>
 </div>

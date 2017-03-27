@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AboutComponent } from './index';
+import { TranslationGuard } from '../shared/translation/';
 
 @NgModule({
   imports: [
@@ -9,6 +10,9 @@ import { AboutComponent } from './index';
       {
         path: 'about',
         component: AboutComponent,
+        canActivate: [
+          TranslationGuard,
+        ],
       },
     ]),
   ],

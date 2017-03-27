@@ -1,19 +1,7 @@
-h4 {
+h2, h3 {
   margin-bottom: 0;
 }
 
-md-list {
-  padding: 0;
-  margin-bottom: 16px;
-}
-
-.material-icons {
-  font-size: 40px;
-  color: lightgrey;
-}
-
-:host /deep/ .md-list-item {
-  &:hover {
-    background-color: rgba(0, 0, 0, .06);
-  }
+ul {
+  margin: 0 0 1em 0;
 }

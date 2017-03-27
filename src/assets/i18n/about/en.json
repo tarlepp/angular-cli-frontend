@@ -1,2 +1,9 @@
 {
+  "TITLE": "What is this?",
+  "CONTENT": "Main purpose of this \"seed\" application is to provide start point for your own application with following main features:",
+  "FEAT_JWT": "JWT Authentication",
+  "FEAT_ROLES": "Role based protection for routes",
+  "FEAT_TRANSLATIONS": "Translations from .json files or remote server",
+  "USED_LIBRARIES": "Used libraries",
+  "EXTERNAL_LINKS": "External links"
 }
