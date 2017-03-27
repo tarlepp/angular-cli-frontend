@@ -12,33 +12,39 @@ export class AboutComponent {
   /**
    * Collection of used libraries.
    *
-   * @type {AboutItemInterface[]}
+   * @type {Array<AboutItemInterface>}
    */
-  public libraries: AboutItemInterface[] = [
+  public libraries: Array<AboutItemInterface> = [
     {
-      name: 'Angular 2',
+      name: 'Angular',
       logo: '/assets/angular.png',
       url: 'https://github.com/angular/angular',
     },
     {
-      name: 'Material Design for Angular 2',
+      name: 'Material Design components for Angular',
       logo: '/assets/angular.png',
       url: 'https://github.com/angular/material2',
     },
     {
-      name: 'angular2-moment',
-      url: 'https://github.com/urish/angular2-moment',
+      name: 'angular2-jwt',
+      logo: '/assets/auth0.png',
+      url: 'https://github.com/auth0/angular2-jwt',
+    },
+    {
+      name: 'Angular-CLI',
+      logo: '/assets/angular.png',
+      url: 'https://github.com/angular/angular-cli',
     },
   ];
 
   /**
    * Collection of external links.
    *
-   * @type {AboutItemInterface[]}
+   * @type {Array<AboutItemInterface>}
    */
-  public externalLinks: AboutItemInterface[] = [
+  public externalLinks: Array<AboutItemInterface> = [
     {
-      name: 'Angular 2',
+      name: 'Angular',
       logo: '/assets/angular.png',
       url: 'https://angular.io',
     },
@@ -47,13 +53,14 @@ export class AboutComponent {
       url: 'https://material.google.com',
     },
     {
-      name: 'Angular 2 style guide',
+      name: 'Angular style guide',
       logo: '/assets/angular.png',
       url: 'https://angular.io/docs/ts/latest/guide/style-guide.html',
     },
     {
-      name: 'Moment.js',
-      url: 'http://momentjs.com/',
+      name: 'JSON Web Tokens',
+      logo: '/assets/jwt.svg',
+      url: 'https://jwt.io/',
     },
   ];
 }
