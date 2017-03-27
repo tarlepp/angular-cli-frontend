@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFill>
   <md-card class="login">
-    <md-toolbar color="primary">Login</md-toolbar>
+    <md-toolbar color="primary">{{ 'TITLE' | translate }}</md-toolbar>
 
     <md-card-content>
       <md-spinner *ngIf="loading" color="accent"></md-spinner>
@@ -11,7 +11,7 @@
         <md-input-container>
           <md-icon md-prefix>person</md-icon>
 
-          <input name="username" placeholder="Username or email" type="text" required
+          <input name="username" placeholder="{{ 'PLACEHOLDER_USERNAME' | translate }}" type="text" required
             mdInput
             [(ngModel)]="username"
             [disabled]="loading"
@@ -22,7 +22,7 @@
         <md-input-container>
           <md-icon md-prefix>security</md-icon>
 
-          <input name="password" placeholder="Password" type="password" required
+          <input name="password" placeholder="{{ 'PLACEHOLDER_PASSWORD' | translate }}" type="password" required
             mdInput
             [(ngModel)]="password"
             [disabled]="loading"
@@ -33,7 +33,7 @@
         <div>
           <button type="submit" md-raised-button color="primary"
             [disabled]="loginForm.invalid || loading"
-          >Login</button>
+          >{{ 'BUTTON_SUBMIT' | translate }}</button>
         </div>
       </form>
     </md-card-content>

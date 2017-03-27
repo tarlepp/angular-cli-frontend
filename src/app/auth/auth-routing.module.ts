@@ -12,7 +12,7 @@ import { ProfileRoutes } from './profile/profile.routing';
         children: [
           ...LoginRoutes,
           ...ProfileRoutes,
-        ]
+        ],
       },
     ]),
   ],
