@@ -1,7 +1,7 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-import { MaterialModule } from '@angular/material';
 
-import { AboutComponent } from './about.component';
+import { SharedModule } from '../shared/shared.module';
+import { AboutComponent, AboutListComponent } from './';
 
 describe('Component: /about/about.component.ts', () => {
   let component: AboutComponent;
@@ -11,9 +11,10 @@ describe('Component: /about/about.component.ts', () => {
     return TestBed.configureTestingModule({
       declarations: [
         AboutComponent,
+        AboutListComponent,
       ],
       imports: [
-        MaterialModule,
+        SharedModule,
       ],
     })
     .compileComponents();
