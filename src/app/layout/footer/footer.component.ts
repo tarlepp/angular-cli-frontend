@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { FooterItemInterface } from './interfaces/';
 
@@ -19,9 +20,10 @@ export class FooterComponent {
       icon: 'web',
     },
     {
-      name: 'Issues',
+      name: 'LINK_ISSUES',
       url: 'https://github.com/tarlepp/angular2-frontend/issues',
       icon: 'bug_report',
+      translate: true,
     },
     {
       name: 'Tarmo Leppänen',
@@ -29,4 +31,6 @@ export class FooterComponent {
       icon: 'person',
     },
   ];
+
+  public constructor(private translateService: TranslateService) { }
 }

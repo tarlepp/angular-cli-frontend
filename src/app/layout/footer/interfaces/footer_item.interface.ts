@@ -1,5 +1,6 @@
 export interface FooterItemInterface {
-  name: string;
+  name: any;
   url: string;
   icon: string;
+  translate?: boolean;
 }

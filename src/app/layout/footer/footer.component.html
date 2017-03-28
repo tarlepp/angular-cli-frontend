@@ -5,7 +5,14 @@
         <a href="{{ link.url }}" target="_blank">
           <md-icon>{{ link.icon }}</md-icon>
 
-          <span>{{ link.name }}</span>
+          <span [ngSwitch]="link.translate">
+            <span *ngSwitchCase="true">
+              {{ link.name | translate }}
+            </span>
+            <span *ngSwitchDefault>
+              {{ link.name }}
+            </span>
+          </span>
         </a>
       </span>
 
