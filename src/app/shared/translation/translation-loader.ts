@@ -3,9 +3,11 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 
 import { ConfigService } from '../services/config.service';
-import { TranslationCacheService } from './translation-cache.service';
+import { TranslationCacheService } from './services/translation-cache.service';
 
 export class TranslationLoader implements TranslateLoader {
+  private url: string;
+
   /**
    * Constructor of the class.
    *
@@ -17,7 +19,10 @@ export class TranslationLoader implements TranslateLoader {
     private http: Http,
     private configService: ConfigService,
     private translationCacheService: TranslationCacheService
-  ) { }
+  ) {
+    this.url = this.configService.get('USE_LOCAL_TRANSLATIONS')
+      ? `./assets/i18n/` : `${this.configService.getApiUrl()}translation/`;
+  }
 
   /**
    * Gets the translations from the server
@@ -26,11 +31,8 @@ export class TranslationLoader implements TranslateLoader {
    * @returns {Observable<any>}
    */
   public getTranslation(language: string): Observable<any> {
-    const url = this.configService.get('USE_LOCAL_TRANSLATIONS')
-      ? `./assets/i18n/` : `${this.configService.getApiUrl()}translation/`;
-
     return this.http
-      .get(`${url}${language}.json`)
+      .get(`${this.url}${language}.json`)
       .map((res: Response) => {
         const translations = res.json();
 

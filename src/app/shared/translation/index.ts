@@ -1,4 +1,3 @@
-export * from './interfaces';
-export * from './translation.guard';
-export * from './translation.service';
-export * from './translation-cache.service';
+export * from './guards/';
+export * from './interfaces/';
+export * from './services/';

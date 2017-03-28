@@ -2,7 +2,7 @@ import { Http } from '@angular/http';
 
 import { TranslationLoader } from './translation-loader';
 import { ConfigService } from '../services/config.service';
-import { TranslationCacheService } from './translation-cache.service';
+import { TranslationCacheService } from './services/translation-cache.service';
 
 /**
  * AoT requires an exported function for factories

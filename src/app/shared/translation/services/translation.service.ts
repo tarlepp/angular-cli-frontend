@@ -1,28 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Event, NavigationEnd, Router } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ConfigService } from '../services/config.service';
+import { ConfigService } from '../../services/config.service';
 import { TranslationCacheService } from './translation-cache.service';
-import { LocaleInterface } from './interfaces/';
+import { LocaleInterface } from '../interfaces/';
 
 @Injectable()
 export class TranslationService {
   private translationUrl: string;
   private language: string;
   private domain: string;
+  private url: string;
+  private loadedDomains: Array<string> = [];
+  private loadedDomainsCommon: Array<string> = [];
+  private loadedDomainsCache: Object = {};
+  private loadedDomainsCacheCommons: Object = {};
 
   /**
    * Constructor of the class.
    *
    * @param {Http}                    http
+   * @param {Router}                  router
    * @param {TranslateService}        translateService
    * @param {TranslationCacheService} translationCacheService
    * @param {ConfigService}           configService
    */
   public constructor(
     private http: Http,
+    private router: Router,
     private translateService: TranslateService,
     private translationCacheService: TranslationCacheService,
     private configService: ConfigService
@@ -40,10 +48,40 @@ export class TranslationService {
       .subscribe((event: LangChangeEvent) => {
         if (event.lang !== this.language) {
           this.language = event.lang;
-        }
 
-        if (this.domain) {
-          this.loadTranslationsForDomain(this.domain).subscribe();
+          // Domain in the common cache so load it
+          if (this.loadedDomainsCacheCommons.hasOwnProperty(this.url)) {
+            this.loadedDomainsCacheCommons[this.url]
+              .map(domain => {
+                this.loadTranslationsForDomain(domain, true).subscribe();
+              });
+          }
+
+          // Domain in the cache so load it
+          if (this.loadedDomainsCache.hasOwnProperty(this.url)) {
+            this.loadedDomainsCache[this.url]
+              .map(domain => {
+                this.loadTranslationsForDomain(domain, false).subscribe();
+              });
+          }
+        }
+      });
+
+    // Subscribe to router events, so we can store/reset some needed data
+    this.router
+      .events
+      .subscribe((event: Event) => {
+        if (event instanceof NavigationEnd) {
+          // Store loaded domains to cache
+          this.loadedDomainsCache[event.url] = this.loadedDomains;
+          this.loadedDomainsCacheCommons[event.url] = this.loadedDomainsCommon;
+
+          // Reset cache
+          this.loadedDomains = [];
+          this.loadedDomainsCommon = [];
+
+          // Store current url
+          this.url = event.url;
         }
       });
   }
@@ -64,21 +102,22 @@ export class TranslationService {
    * to translate service so that those are usable right away.
    *
    * @param {string}  domain
+   * @param {boolean} common
    * @returns {Observable<Object>}
    */
-  public loadTranslationsForDomain(domain: string): Observable<Object> {
+  public loadTranslationsForDomain(domain: string, common: boolean): Observable<Object> {
     // Store current domain
-    this.domain = domain;
+    common ? this.loadedDomainsCommon.push(domain) : this.loadedDomains.push(domain);
 
     // Translations are in cache, so just use those
-    if (this.translationCacheService.cached(this.language, domain)) {
+    if (this.translationCacheService.cached(this.language, domain, common)) {
       this.loadTranslations(this.language, domain);
 
       return Observable.of({});
     }
 
     // Otherwise fetch translations
-    return this.fetchTranslationsForDomain(domain, this.language);
+    return this.fetchTranslationsForDomain(domain, this.language, common);
   }
 
   /**
@@ -93,16 +132,17 @@ export class TranslationService {
    *
    * @param {string}  language
    * @param {string}  domain
+   * @param {boolean} common
    * @returns {Observable<Object>}
    */
-  private fetchTranslationsForDomain(domain: string, language: string): Observable<Object> {
+  private fetchTranslationsForDomain(domain: string, language: string, common: boolean): Observable<Object> {
     return this.http
       .get(`${this.translationUrl}${domain}/${language}.json`)
       .map((res: Response) => { // Aah, happy path - so happy now
         const translations = res.json();
 
         // Store translations to cache
-        this.translationCacheService.store(language, domain, translations);
+        this.translationCacheService.store(language, domain, translations, common);
 
         // And load translations
         this.loadTranslations(language, domain);

@@ -5,9 +5,9 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 
 import { HttpLoaderFactory } from './http-loader-factory';
 import { ConfigService } from '../services/config.service';
-import { TranslationGuard } from './translation.guard';
-import { TranslationService } from './translation.service';
-import { TranslationCacheService } from './translation-cache.service';
+import { TranslationGuard } from './guards/translation.guard';
+import { TranslationService } from './services/translation.service';
+import { TranslationCacheService } from './services/translation-cache.service';
 
 @NgModule({
   imports: [
