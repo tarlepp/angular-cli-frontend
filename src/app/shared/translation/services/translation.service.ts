@@ -163,6 +163,6 @@ export class TranslationService {
    * @param {string}  domain
    */
   private loadTranslations(language: string, domain: string) {
-    this.translateService.setTranslation(language, this.translationCacheService.get(language, domain), false);
+    this.translateService.setTranslation(language, this.translationCacheService.get(language, domain), true);
   }
 }
