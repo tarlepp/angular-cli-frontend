@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { LocalStorageService } from 'ng2-webstorage';
 import { Observable } from 'rxjs/Observable';
 
 import { ConfigService } from '../../services/config.service';
@@ -24,6 +25,7 @@ export class TranslationService {
    *
    * @param {Http}                    http
    * @param {Router}                  router
+   * @param {LocalStorageService}     localStorage
    * @param {TranslateService}        translateService
    * @param {TranslationCacheService} translationCacheService
    * @param {ConfigService}           configService
@@ -31,6 +33,7 @@ export class TranslationService {
   public constructor(
     private http: Http,
     private router: Router,
+    private localStorage: LocalStorageService,
     private translateService: TranslateService,
     private translationCacheService: TranslationCacheService,
     private configService: ConfigService
@@ -48,6 +51,8 @@ export class TranslationService {
       .subscribe((event: LangChangeEvent) => {
         if (event.lang !== this.language) {
           this.language = event.lang;
+
+          this.localStorage.store('language', this.language);
 
           // Domain in the common cache so load it
           if (this.loadedDomainsCacheCommons.hasOwnProperty(this.url)) {
