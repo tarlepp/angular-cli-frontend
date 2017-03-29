@@ -1,20 +1,31 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-import { MaterialModule } from '@angular/material';
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { FooterComponent } from './footer.component';
+import { SharedModule } from '../../shared/shared.module';
 
 describe('Component: /layout/footer/footer.component.ts', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
       declarations: [
         FooterComponent,
       ],
       imports: [
-        MaterialModule.forRoot(),
+        SharedModule,
+        RouterModule.forRoot([]),
+        TranslateModule.forRoot(),
       ],
+      providers: [
+        {
+          provide: APP_BASE_HREF,
+          useValue : '/',
+        },
+      ]
     })
     .compileComponents();
   }));

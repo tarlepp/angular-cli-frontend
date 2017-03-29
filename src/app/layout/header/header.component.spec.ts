@@ -8,7 +8,7 @@ import { HeaderComponent } from './header.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService, UserService } from '../../auth/services/';
 import { SidenavService } from '../sidenav/sidenav.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 describe('Component: /layout/header/header.component.ts', () => {
   let component: HeaderComponent;
@@ -22,6 +22,7 @@ describe('Component: /layout/header/header.component.ts', () => {
       imports: [
         SharedModule,
         RouterModule.forRoot([]),
+        TranslateModule.forRoot(),
       ],
       providers: [
         AuthHttp,

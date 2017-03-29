@@ -2,6 +2,7 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 
 import { SharedModule } from '../shared/shared.module';
 import { AboutComponent, AboutListComponent } from './';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('Component: /about/about.component.ts', () => {
   let component: AboutComponent;
@@ -15,6 +16,7 @@ describe('Component: /about/about.component.ts', () => {
       ],
       imports: [
         SharedModule,
+        TranslateModule.forRoot(),
       ],
     })
     .compileComponents();

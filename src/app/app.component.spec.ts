@@ -1,32 +1,31 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { SidenavService } from './layout/sidenav/sidenav.service';
-import { MaterialModule } from '@angular/material';
 
 describe('Component: /app.component.ts', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
       declarations: [
         AppComponent,
       ],
       imports: [
-        TranslateModule.forRoot(),
-        MaterialModule,
+        SharedModule,
         RouterModule.forRoot([]),
+        TranslateModule.forRoot(),
       ],
       providers: [
         {
           provide: APP_BASE_HREF,
           useValue : '/'
         },
-        TranslateService,
         SidenavService,
       ],
     })
