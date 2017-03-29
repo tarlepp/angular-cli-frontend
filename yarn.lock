@@ -145,9 +145,9 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-0.0.3.tgz#8346c8d2d6f630254601029668f17abe2afe8a9b"
 
-"@types/jasmine@2.5.46":
-  version "2.5.46"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.46.tgz#bb3047a3f40f60dee03f52c3e2d955cd3d5066c8"
+"@types/jasmine@2.5.47":
+  version "2.5.47"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.47.tgz#bbba9bcf0e95e7890c6f4a47394e8bacaa960eb6"
 
 "@types/node@7.0.12":
   version "7.0.12"
