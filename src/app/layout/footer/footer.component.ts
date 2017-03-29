@@ -20,7 +20,7 @@ export class FooterComponent {
       icon: 'web',
     },
     {
-      name: 'LINK_ISSUES',
+      name: 'FOOTER_LINK_ISSUES',
       url: 'https://github.com/tarlepp/angular2-frontend/issues',
       icon: 'bug_report',
       translate: true,

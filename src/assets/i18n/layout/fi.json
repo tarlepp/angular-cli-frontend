@@ -1,3 +1,5 @@
 {
-  "LINK_ISSUES": "Bugit \/ Kysymykset"
+  "FOOTER_LINK_ISSUES": "Bugit \/ Kysymykset",
+  "HEADER_BUTTON_LOGIN": "Kirjaudu sisään",
+  "HEADER_BUTTON_LOGOUT": "Kirjaudu ulos"
 }

@@ -1,3 +1,5 @@
 {
-  "LINK_ISSUES": "Issues"
+  "FOOTER_LINK_ISSUES": "Issues",
+  "HEADER_BUTTON_LOGIN": "Login",
+  "HEADER_BUTTON_LOGOUT": "Logout"
 }

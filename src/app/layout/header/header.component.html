@@ -18,7 +18,7 @@
 
         <button *ngIf="user"
           md-mini-fab
-          md-tooltip="Logout"
+          md-tooltip="{{ 'HEADER_BUTTON_LOGOUT' | translate }}"
           tooltip-position="below"
           (click)="authService.logout()"
         >
@@ -27,7 +27,7 @@
 
         <button *ngIf="!user"
           md-mini-fab
-          md-tooltip="Login"
+          md-tooltip="{{ 'HEADER_BUTTON_LOGIN' | translate }}"
           tooltip-position="below"
           [routerLink]="['/auth/login']"
         >
