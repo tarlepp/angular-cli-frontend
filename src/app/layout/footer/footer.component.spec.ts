@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { FooterComponent } from './footer.component';
@@ -11,14 +11,14 @@ describe('Component: /layout/footer/footer.component.ts', () => {
   let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async(() => {
-    return TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [
         FooterComponent,
       ],
       imports: [
         SharedModule,
-        RouterModule.forRoot([]),
         TranslateModule.forRoot(),
+        RouterTestingModule,
       ],
       providers: [
         {
@@ -27,7 +27,8 @@ describe('Component: /layout/footer/footer.component.ts', () => {
         },
       ]
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => { });
   }));
 
   beforeEach(() => {

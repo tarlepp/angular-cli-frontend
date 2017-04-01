@@ -15,7 +15,7 @@ describe('Component: /layout/header/header.component.ts', () => {
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async(() => {
-    return TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [
         HeaderComponent,
       ],
@@ -45,7 +45,8 @@ describe('Component: /layout/header/header.component.ts', () => {
         TranslateService,
       ],
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => { });
   }));
 
   beforeEach(() => {

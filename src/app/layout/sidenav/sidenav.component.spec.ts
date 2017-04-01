@@ -11,7 +11,7 @@ import { SidenavService } from './sidenav.service';
 import { TranslateService } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 
-describe('SidenavComponent', () => {
+describe('Component: /layout/sidenav/sidenav.component.ts', () => {
   let component: SidenavComponent;
   let fixture: ComponentFixture<SidenavComponent>;
 
@@ -45,7 +45,8 @@ describe('SidenavComponent', () => {
         TranslateService,
       ]
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => { });
   }));
 
   beforeEach(() => {
@@ -54,7 +55,7 @@ describe('SidenavComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 });

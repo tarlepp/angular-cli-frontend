@@ -1,22 +1,23 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { MaterialModule } from '@angular/material';
 
-import { AboutListComponent } from './index';
+import { AboutListComponent } from './';
 
 describe('Component: /about/about-list.component.ts', () => {
   let component: AboutListComponent;
   let fixture: ComponentFixture<AboutListComponent>;
 
   beforeEach(async(() => {
-    return TestBed.configureTestingModule({
-        declarations: [
-          AboutListComponent,
-        ],
-        imports: [
-          MaterialModule,
-        ],
-      })
-      .compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [
+        AboutListComponent,
+      ],
+      imports: [
+        MaterialModule,
+      ],
+    })
+    .compileComponents()
+    .then(() => { });
   }));
 
   beforeEach(() => {

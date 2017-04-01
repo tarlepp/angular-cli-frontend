@@ -12,7 +12,7 @@ describe('Component: /app.component.ts', () => {
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async(() => {
-    return TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [
         AppComponent,
       ],
@@ -29,7 +29,8 @@ describe('Component: /app.component.ts', () => {
         SidenavService,
       ],
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => { });
   }));
 
   beforeEach(() => {

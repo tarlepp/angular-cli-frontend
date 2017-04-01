@@ -1,15 +1,15 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { SharedModule } from '../shared/shared.module';
 import { AboutComponent, AboutListComponent } from './';
-import { TranslateModule } from '@ngx-translate/core';
 
 describe('Component: /about/about.component.ts', () => {
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
 
   beforeEach(async(() => {
-    return TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [
         AboutComponent,
         AboutListComponent,
@@ -19,7 +19,8 @@ describe('Component: /about/about.component.ts', () => {
         TranslateModule.forRoot(),
       ],
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => { });
   }));
 
   beforeEach(() => {

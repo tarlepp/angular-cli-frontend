@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Http, ConnectionBackend, HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { MdSnackBar, MaterialModule } from '@angular/material';
 import { AuthHttp, provideAuth, JwtHelper } from 'angular2-jwt';
@@ -14,7 +14,7 @@ describe('Service: /auth/services/auth.service.ts', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpModule,
-        RouterModule.forRoot([]),
+        RouterTestingModule,
         MaterialModule,
       ],
       providers: [
@@ -44,7 +44,9 @@ describe('Service: /auth/services/auth.service.ts', () => {
           useValue: window
         },
       ],
-    });
+    })
+    .compileComponents()
+    .then(() => { });
   });
 
   it('should create the service', inject([AuthService], (service: AuthService) => {

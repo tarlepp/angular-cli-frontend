@@ -42,7 +42,9 @@ describe('Guard: /auth/guards/authentication.guard.ts', () => {
         UserService,
         JwtHelper,
       ],
-    });
+    })
+    .compileComponents()
+    .then(() => { });
   });
 
   it('should create the guard', inject([AuthenticationGuard], (guard: AuthenticationGuard) => {

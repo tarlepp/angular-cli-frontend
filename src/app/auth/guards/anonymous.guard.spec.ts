@@ -28,7 +28,7 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
       navigate: (commands: any[]) => commands,
     };
 
-    return TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       providers: [
         AnonymousGuard,
         {
@@ -43,7 +43,8 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
         JwtHelper,
       ],
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => { });
   });
 
   it('should create the guard', inject([AnonymousGuard], (guard: AnonymousGuard) => {
@@ -70,7 +71,11 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
     );
 
     it('should redirect user', inject(
-      [AnonymousGuard, LocalStorageService, Router],
+      [
+        AnonymousGuard,
+        LocalStorageService,
+        Router,
+      ],
       (
         guard: AnonymousGuard,
         storage: LocalStorageService,
