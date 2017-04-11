@@ -54,18 +54,14 @@
   "defaults": {
     "styleExt": "scss",
     "component": {},
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
-    },
-    "spec": {
-      "class": false,
-      "component": true,
-      "directive": true,
-      "module": false,
-      "pipe": true,
-      "service": true
+    "directive": {},
+    "guard": {},
+    "interface": {},
+    "module": {},
+    "pipe": {},
+    "service": {},
+    "serve": {
+      "host": "0.0.0.0"
     }
   }
 }

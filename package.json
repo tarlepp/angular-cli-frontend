@@ -6,7 +6,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng lint && ng test --code-coverage",
     "lint": "ng lint",
