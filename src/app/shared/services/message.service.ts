@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MdSnackBar, MdSnackBarRef } from '@angular/material/snack-bar';
-import { SimpleSnackBar } from '@angular/material/snack-bar/simple-snack-bar';
+import { MdSnackBar, MdSnackBarRef, SimpleSnackBar } from '@angular/material';
 
 @Injectable()
 export class MessageService {
