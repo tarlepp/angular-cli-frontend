@@ -1,10 +1,10 @@
-import { AngularCliFrontendPage } from './app.po';
+import { FoobarPage } from './app.po';
 
-describe('angular-cli-frontend App', function() {
-  let page: AngularCliFrontendPage;
+describe('foobar App', () => {
+  let page: FoobarPage;
 
   beforeEach(() => {
-    page = new AngularCliFrontendPage();
+    page = new FoobarPage();
   });
 
   it('should display message saying app works', () => {
