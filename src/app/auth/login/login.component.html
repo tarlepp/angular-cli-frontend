@@ -1,10 +1,10 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFill>
+  <md-spinner *ngIf="loading" color="accent"></md-spinner>
+
   <md-card class="login">
     <md-toolbar color="primary">{{ 'TITLE' | translate }}</md-toolbar>
 
     <md-card-content>
-      <md-spinner *ngIf="loading" color="accent"></md-spinner>
-
       <form #loginForm="ngForm" (submit)="login($event)" novalidate autocomplete="off"
         [class.opacity-50]="loading"
       >
