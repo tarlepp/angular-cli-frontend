@@ -1,6 +1,6 @@
 <div class="normal-content" fxLayout="row" fxLayoutAlign="space-between start" fxFill>
   <div fxFlex>
-    <h2 class="md-subhead">Profile data from JWT</h2>
+    <h2 class="md-subhead">{{ 'TITLE_PROFILE_FROM_JWT' | translate }}</h2>
 
     <pre>{{ profileLocal | json }}</pre>
   </div>
@@ -8,7 +8,7 @@
   <div fxFlex="5"></div>
 
   <div fxFlex>
-    <h2 class="md-subhead">Profile data from Backend</h2>
+    <h2 class="md-subhead">{{ 'TITLE_PROFILE_FROM_BACKEND' | translate }}</h2>
 
     <pre>{{ profileRemote | json }}</pre>
   </div>
