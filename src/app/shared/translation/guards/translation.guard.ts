@@ -59,6 +59,7 @@ export class TranslationGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
+    const parts: Array<string> = [];
     let domain: string;
     let common = false;
 
@@ -77,10 +78,15 @@ export class TranslationGuard implements CanActivate {
         .join('/');
     }
 
-    // Create new observable and load translations for current domain
+    const observables = domain.split('/').map((part: string) => {
+      parts.push(part);
+
+      return this.translationService.loadTranslationsForDomain([...parts].join('/'), common);
+    });
+
     return new Observable<boolean>(observer => {
-      this.translationService
-        .loadTranslationsForDomain(domain, common)
+      Observable
+        .forkJoin(observables)
         .subscribe(() => {
           observer.next(true);
           observer.complete();
