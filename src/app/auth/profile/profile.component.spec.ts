@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
 import { JwtHelper, provideAuth } from 'angular2-jwt';
 import { LocalStorageService } from 'ng2-webstorage';
 import { Observable } from 'rxjs/Observable';
@@ -28,6 +29,7 @@ describe('Component: /auth/profile/profile.component.ts', () => {
       imports: [
         SharedModule,
         RouterTestingModule,
+        TranslateModule.forRoot(),
       ],
       providers: [
         {
