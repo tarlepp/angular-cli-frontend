@@ -14,7 +14,7 @@ export class TranslationGuard implements CanActivate {
   public constructor(private translationService: TranslationService) { }
 
   /**
-   * Purpose of this guard is to load current route possible translations so that we can use those easily. Usage
+   * Purpose of this guard is to loadTranslations current route possible translations so that we can use those easily. Usage
    * examples:
    *
    *  RouterModule.forChild([
@@ -27,7 +27,7 @@ export class TranslationGuard implements CanActivate {
    *    },
    *  ]);
    *
-   * Above will try to load locales from path 'foo/en.json'
+   * Above will try to loadTranslations locales from path 'foo/en.json'
    *
    *  RouterModule.forChild([
    *    {
@@ -45,9 +45,8 @@ export class TranslationGuard implements CanActivate {
    *    },
    *  ]);
    *
-   * Above will try to load translations from path 'layout/en.json'
+   * Above will try to loadTranslations translations from path 'layout/en.json'
    *
-   * TODO determine how to load multiple "domain" within one resolve - this might be needed feature
    * TODO don't store data.translation.domain data to translate normal cache
    * TODO resolve possible cache problems common versus not common
    *
@@ -59,13 +58,12 @@ export class TranslationGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
-    const parts: Array<string> = [];
     let domain: string;
     let common = false;
 
     // Route data contains translation meta data
     if (next.data.hasOwnProperty('translation')) {
-      domain = next.data['translation']['domain'];
+      domain = next.data['translation'].hasOwnProperty('domain') ? next.data['translation']['domain'] : false;
       common = next.data['translation'].hasOwnProperty('common') ? next.data['translation']['common'] : false;
     } else { // Otherwise determine current domain name
       domain = next.pathFromRoot
@@ -78,15 +76,9 @@ export class TranslationGuard implements CanActivate {
         .join('/');
     }
 
-    const observables = domain.split('/').map((part: string) => {
-      parts.push(part);
-
-      return this.translationService.loadTranslationsForDomain([...parts].join('/'), common);
-    });
-
     return new Observable<boolean>(observer => {
-      Observable
-        .forkJoin(observables)
+      this.translationService
+        .load(domain, common)
         .subscribe(() => {
           observer.next(true);
           observer.complete();
