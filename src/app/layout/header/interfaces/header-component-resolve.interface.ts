@@ -1,5 +1,5 @@
-import { LocaleInterface } from '../../../shared/translation/';
+import { LocaleModel } from '../../../shared/translation/';
 
 export interface HeaderComponentResolveInterface {
-  locales: Array<LocaleInterface>;
+  locales: Array<LocaleModel>;
 }

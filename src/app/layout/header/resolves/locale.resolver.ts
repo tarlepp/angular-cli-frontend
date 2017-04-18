@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { LocaleInterface, TranslationService } from '../../../shared/translation/';
+import { LocaleModel, TranslationService } from '../../../shared/translation/';
 
 @Injectable()
-export class LocaleResolver implements Resolve<Observable<Array<LocaleInterface>>> {
+export class LocaleResolver implements Resolve<Observable<Array<LocaleModel>>> {
   /**
    * Constructor of the class.
    *
@@ -19,12 +19,12 @@ export class LocaleResolver implements Resolve<Observable<Array<LocaleInterface>
    * @param {ActivatedRouteSnapshot}  route
    * @param {RouterStateSnapshot}     state
    *
-   * @returns {Observable<Array<LocaleInterface>>}
+   * @returns {Observable<Array<LocaleModel>>}
    */
   public resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<Array<LocaleInterface>> {
+  ): Observable<Array<LocaleModel>> {
     return this.translationService.getLocales();
   }
 }

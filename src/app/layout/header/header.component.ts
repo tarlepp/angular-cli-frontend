@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { AuthService, UserService } from '../../auth/services/';
-import { LocaleInterface } from '../../shared/translation/';
+import { LocaleModel } from '../../shared/translation/';
 import { HeaderComponentResolveInterface } from './interfaces/';
 import { SidenavService } from '../sidenav/';
 
@@ -17,7 +17,7 @@ import { SidenavService } from '../sidenav/';
 
 export class HeaderComponent implements OnInit {
   public user: any;
-  public locales: Array<LocaleInterface>;
+  public locales: Array<LocaleModel>;
 
   /**
    * Constructor of the class.
@@ -58,9 +58,9 @@ export class HeaderComponent implements OnInit {
   /**
    * Method to change current language.
    *
-   * @param {LocaleInterface} locale
+   * @param {LocaleModel} locale
    */
-  public changeLocale(locale: LocaleInterface): void {
+  public changeLocale(locale: LocaleModel): void {
     this.translateService.use(locale.code);
   }
 
