@@ -18,16 +18,28 @@ class StubLocalStorageService {
   }
 }
 
+class StubRouter {
+  data;
+  error;
+
+  navigate(commands: any[]) {
+    return this;
+  }
+
+  then(callback) {
+    if (!this.error) {
+      callback(this.data);
+    }
+    return this;
+  }
+}
+
 describe('Guard: /auth/guards/anonymous.guard.ts', () => {
   const route: any = {};
   const state: any = {};
   const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.EkN-DOsnsuRjRO6BxXemmJDm3HbxrbRzXglbN2S4sOkopdU4IsDxTI8jO19W_A4K8ZPJijNLis4EZsHeY559a4DFOd50_OqgHGuERTqYZyuhtF39yxJPAjUESwxk2J5k_4zM3O-vtd1Ghyo4IbqKKSy6J9mTniYJPenn5-HIirE';
 
   beforeEach(() => {
-    const fakeRouter = {
-      navigate: (commands: any[]) => commands,
-    };
-
     TestBed.configureTestingModule({
       providers: [
         AnonymousGuard,
@@ -37,7 +49,7 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
         },
         {
           provide: Router,
-          useValue: fakeRouter,
+          useClass: StubRouter,
         },
         UserService,
         JwtHelper,
@@ -53,8 +65,28 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
 
   describe('When user is not logged in', () => {
     it('should return true', inject([AnonymousGuard], (guard: AnonymousGuard) => {
-      expect(guard.canActivate(route, state)).toBeTruthy();
+      guard.canActivate(route, state)
+        .subscribe((value: boolean) => {
+          expect(value).toBeTruthy();
+        });
     }));
+
+    it('should not call router.navigate', inject(
+      [
+        AnonymousGuard,
+        Router,
+      ],
+      (
+        guard: AnonymousGuard,
+        router: Router
+      ) => {
+        spyOn(router, 'navigate').and.returnValue(Promise.resolve());
+
+        guard.canActivate(route, state).subscribe(() => {
+          expect(router.navigate).not.toHaveBeenCalled();
+        });
+      })
+    );
   });
 
   describe('When user is logged in', () => {
@@ -66,11 +98,14 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
       ) => {
         storage.store('token', token);
 
-        expect(guard.canActivate(route, state)).not.toBeTruthy();
+        guard.canActivate(route, state)
+          .subscribe((value: boolean) => {
+            expect(value).not.toBeTruthy();
+          });
       })
     );
 
-    it('should redirect user', inject(
+    it('should call router.navigate', inject(
       [
         AnonymousGuard,
         LocalStorageService,
@@ -83,11 +118,11 @@ describe('Guard: /auth/guards/anonymous.guard.ts', () => {
       ) => {
         storage.store('token', token);
 
-        spyOn(router, 'navigate');
+        spyOn(router, 'navigate').and.returnValue(Promise.resolve());
 
-        guard.canActivate(route, state);
-
-        expect(router.navigate).toHaveBeenCalledWith(['auth/profile']);
+        guard.canActivate(route, state).subscribe(() => {
+          expect(router.navigate).toHaveBeenCalledWith(['auth/profile']);
+        });
       })
     );
   });

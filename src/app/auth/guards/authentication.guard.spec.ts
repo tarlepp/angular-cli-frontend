@@ -18,16 +18,28 @@ class StubLocalStorageService {
   }
 }
 
+class StubRouter {
+  data;
+  error;
+
+  navigate(commands: any[]) {
+    return this;
+  }
+
+  then(callback) {
+    if (!this.error) {
+      callback(this.data);
+    }
+    return this;
+  }
+}
+
 describe('Guard: /auth/guards/authentication.guard.ts', () => {
   const route: any = {};
   const state: any = {};
   const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.EkN-DOsnsuRjRO6BxXemmJDm3HbxrbRzXglbN2S4sOkopdU4IsDxTI8jO19W_A4K8ZPJijNLis4EZsHeY559a4DFOd50_OqgHGuERTqYZyuhtF39yxJPAjUESwxk2J5k_4zM3O-vtd1Ghyo4IbqKKSy6J9mTniYJPenn5-HIirE';
 
   beforeEach(() => {
-    const fakeRouter = {
-      navigate: (commands: any[]) => commands,
-    };
-
     TestBed.configureTestingModule({
       providers: [
         AuthenticationGuard,
@@ -37,7 +49,7 @@ describe('Guard: /auth/guards/authentication.guard.ts', () => {
         },
         {
           provide: Router,
-          useValue: fakeRouter,
+          useClass: StubRouter,
         },
         UserService,
         JwtHelper,
@@ -53,10 +65,12 @@ describe('Guard: /auth/guards/authentication.guard.ts', () => {
 
   describe('When user is not logged in', () => {
     it('should return false', inject([AuthenticationGuard], (guard: AuthenticationGuard) => {
-      expect(guard.canActivate(route, state)).not.toBeTruthy();
+      guard.canActivate(route, state).subscribe((value: boolean) => {
+        expect(value).not.toBeTruthy();
+      });
     }));
 
-    it('should redirect user to login page', inject(
+    it('should call router.navigate', inject(
       [
         AuthenticationGuard,
         Router,
@@ -65,11 +79,11 @@ describe('Guard: /auth/guards/authentication.guard.ts', () => {
         guard: AuthenticationGuard,
         router: Router
       ) => {
-        spyOn(router, 'navigate');
+        spyOn(router, 'navigate').and.returnValue(Promise.resolve());
 
-        guard.canActivate(route, state);
-
-        expect(router.navigate).toHaveBeenCalledWith(['auth/login']);
+        guard.canActivate(route, state).subscribe(() => {
+          expect(router.navigate).toHaveBeenCalledWith(['auth/login']);
+        });
       })
     );
   });
@@ -79,14 +93,41 @@ describe('Guard: /auth/guards/authentication.guard.ts', () => {
       [
         AuthenticationGuard,
         LocalStorageService,
+        Router,
       ],
       (
         guard: AuthenticationGuard,
-        storage: LocalStorageService
+        storage: LocalStorageService,
+        router: Router
       ) => {
         storage.store('token', token);
 
-        expect(guard.canActivate(route, state)).toBeTruthy();
+        spyOn(router, 'navigate').and.returnValue(Promise.resolve());
+
+        guard.canActivate(route, state).subscribe((value: boolean) => {
+          expect(value).toBeTruthy();
+        });
+      })
+    );
+
+    it('should not call router.navigate', inject(
+      [
+        AuthenticationGuard,
+        LocalStorageService,
+        Router,
+      ],
+      (
+        guard: AuthenticationGuard,
+        storage: LocalStorageService,
+        router: Router
+      ) => {
+        storage.store('token', token);
+
+        spyOn(router, 'navigate').and.returnValue(Promise.resolve());
+
+        guard.canActivate(route, state).subscribe(() => {
+          expect(router.navigate).not.toHaveBeenCalled();
+        });
       })
     );
   });
