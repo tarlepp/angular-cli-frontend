@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
-import { MdIconRegistry } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MomentModule } from 'angular2-moment';
 import { Ng2Webstorage } from 'ng2-webstorage';
@@ -38,9 +37,8 @@ import { MaterialModule } from './modules/material.module';
   providers: [
     {
       provide: 'Window',
-      useValue: window
+      useValue: window,
     },
-    MdIconRegistry,
     ...Guards,
     ...Services,
   ],
