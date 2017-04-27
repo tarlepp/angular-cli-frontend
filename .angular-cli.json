@@ -60,8 +60,6 @@
     "module": {},
     "pipe": {},
     "service": {},
-    "serve": {
-      "host": "0.0.0.0"
-    }
+    "serve": {}
   }
 }
