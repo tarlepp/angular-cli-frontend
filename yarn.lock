@@ -858,9 +858,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codelyzer@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-3.0.0.tgz#b33eb4886271b5d8209a0dfa4a20fc27eefa4029"
+codelyzer@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-3.0.1.tgz#ba66b7b2aa564fe9f45d6004b4003ad2cf116828"
   dependencies:
     app-root-path "^2.0.1"
     css-selector-tokenizer "^0.7.0"
@@ -4935,9 +4935,9 @@ typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.1.tgz#e3361fb395c6c3f9c69faeeabc9503f8bdecaea1"
+typescript@2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.2.tgz#f0f045e196f69a72f06b25fd3bd39d01c3ce9984"
 
 "typescript@>=2.0.0 <2.3.0":
   version "2.2.2"
@@ -5415,10 +5415,6 @@ yn@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/yn/-/yn-1.2.0.tgz#d237a4c533f279b2b89d3acac2db4b8c795e4a63"
 
-zone.js@0.8.9:
+zone.js@0.8.9, zone.js@^0.8.4:
   version "0.8.9"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.9.tgz#34aaa9a3ec6d0e4acebd1b761adafa590473638b"
-
-zone.js@^0.8.4:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.7.tgz#14c360b962ff86efc4f507f34428391eb1b28fb9"
