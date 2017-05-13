@@ -102,9 +102,9 @@
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.1.2.tgz#fc378c3330c0410e1fb8aac2546329a6887776e4"
 
-"@angular/material@2.0.0-beta.3":
-  version "2.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.3.tgz#ec31dee61d7300ece28fee476852db236ded1e13"
+"@angular/material@2.0.0-beta.5":
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.5.tgz#712141ebfa77e3ace3ec8e32b5953b355e773965"
 
 "@angular/platform-browser-dynamic@4.1.2":
   version "4.1.2"
@@ -4306,15 +4306,9 @@ rx@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
 
-rxjs@5.4.0:
+rxjs@5.4.0, rxjs@^5.0.1:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.0.tgz#a7db14ab157f9d7aac6a56e655e7a3860d39bf26"
-  dependencies:
-    symbol-observable "^1.0.1"
-
-rxjs@^5.0.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.3.1.tgz#9ecc9e722247e4f4490d30a878577a3740fd0cb7"
   dependencies:
     symbol-observable "^1.0.1"
 
